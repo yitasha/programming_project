@@ -1,0 +1,121 @@
+h2{
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    max-width: 650px;
+    min-width: 250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.row{
+    width:70%;
+}
+
+  
+input[type=text] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    width: 95%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+}
+  
+input[type=text]:focus {
+    border-bottom: 2px solid #503a2c;
+}
+
+input[type=password] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    width: 95%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+}
+  
+input[type=password]:focus {
+    border-bottom: 2px solid #503a2c;
+}
+
+input[type=email] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    width: 95%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+}
+  
+input[type=email]:focus {
+    border-bottom: 2px solid #503a2c;
+}
+
+input[type=submit] {
+    width: 70%;
+    background-color: #2C3E50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: rgb(34, 48, 61);
+}
+
+.col-sm-4 {
+    padding: 0;
+}
+
+#state {
+    width: 85%;
+    margin: 5px 0;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    height: 45px;
+    color: rgb(110, 108, 108);
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+}

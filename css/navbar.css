@@ -1,0 +1,219 @@
+/*Nav bar Section*/
+#navbar{
+    background-color: #2C3E50;
+    border-color: #2C3E50;
+    border-radius: 0px 0px 0px 0px;
+    height:80px;
+}
+
+a{
+    font-family: 'Roboto', sans-serif;
+    font-size:medium;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 0;
+    background-color:#2C3E50 ;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 10px;
+}
+
+nav p{
+    color:white;
+}
+
+.dropdown-menu{
+    background-color: #2C3E50;
+}
+
+.dropdown-menu{
+    background-color: #2C3E50;
+}
+
+
+
+/*Login and Register Form Section*/
+h2{
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+}
+
+#loginContainer {
+    margin-left: 40%;
+}
+
+.registerContainer{
+    text-align: center;
+    padding-top: 20px;
+    max-width: 650px;
+    min-width: 250px;
+    margin: 0 auto;
+    /* display: flex; <-- removed cuz it messes up form*/
+    align-items: center;
+    flex-direction: column; 
+}
+
+
+/* Removed because it will make screen into a small box
+body {
+    max-width: 650px;
+    min-width: 250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    padding: 100px;
+
+}
+*/
+
+input[type=text] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    width: 95%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+}
+  
+input[type=text]:focus {
+    border-bottom: 2px solid #F64C72;
+}
+  
+input[type=text]:placeholder {
+    color: #cccccc;
+}
+  
+input[type=password] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    width: 95%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+}
+  
+input[type=password]:focus {
+    border-bottom: 2px solid #F64C72;
+}
+  
+input[type=password]:placeholder {
+    color: #cccccc;
+}
+  
+#loginForm {
+    padding-top: 60px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+    margin:0 auto;
+  }
+
+  input[type=email] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    width: 95%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+}
+  
+input[type=email]:focus {
+    border-bottom: 2px solid #503a2c;
+}
+
+.col-sm-4 {
+    padding: 0;
+}
+
+#state {
+    width: 85%;
+    margin: 5px 0;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    height: 45px;
+    color: rgb(110, 108, 108);
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+input[type=submit] {
+    width: 98%;
+    background-color: #F64C72;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: rgb(226, 71, 105);
+}
+
+
+
+/*Footer Section*/
+
+footer{
+	margin-top: 30%;
+	border-top:1px solid black;
+    padding-top:20px;
+    text-align: center;
+}
+
+footer p{
+    color:black;
+}

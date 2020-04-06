@@ -1,0 +1,55 @@
+runtime: php55
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /css
+  static_dir: css
+
+
+- url: /js
+  static_dir: js
+
+- url: /imgs
+  static_dir: imgs
+  application_readable: true
+
+- url: /(.*\.png)
+  mime_type: image/png
+  static_files: images/\1
+  upload: images/(.*\.png)
+  application_readable: true
+
+- url: /(.+\.php)$
+  script: \1
+
+- url: /.*
+  script: index.php
+
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
+  application_readable: true
+
+- url: /(.+\.(htm|html|css|js))$
+  static_files: \1
+  upload: (.+\.(htm|html|css|js))$
+  application_readable: true
+ 
+- url: /(.+\.php)$
+  script: \1
+
+- url: /.*
+  script: index.php
+
+# [START gae_php_mysql_env]
+env_variables:
+  # Replace USER, PASSWORD, DATABASE, and CONNECTION_NAME with the
+  # values obtained when configuring your Cloud SQL instance.
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/rocket-matchmaking:australia-southeast1:rocketmarket;dbname=account
+  MYSQL_USER: root
+  MYSQL_PASSWORD: root
+# [END gae_php_mysql_env]
