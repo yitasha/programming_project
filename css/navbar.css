@@ -1,43 +1,44 @@
 /*Nav bar Section*/
-#navbar{
+#navbar.navbar.navbar{
+    border-radius: 0px;
     background-color: #2C3E50;
     border-color: #2C3E50;
-    border-radius: 0px 0px 0px 0px;
-    height:80px;
 }
 
 a{
     font-family: 'Roboto', sans-serif;
-    font-size:medium;
+    font-weight: lighter;
+}
+
+#navbar.navbar.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+#navbar.navbar.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    color: #fff;
+    background-color: rgb(30, 43, 56);
 }
 
 .navbar-nav>li>.dropdown-menu {
-    margin-top: 0;
-    background-color:#2C3E50 ;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    background-color:#2C3E50;
 }
 
-.container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-top: 10px;
+.navbar-nav>li>.dropdown-menu>li>a {
+    color: white;  
 }
 
-nav p{
+.navbar-nav>li>.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-image:none !important;
+}
+.navbar-nav>li>.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color:rgb(30, 43, 56);
     color:white;
 }
 
-.dropdown-menu{
-    background-color: #2C3E50;
-}
-
-.dropdown-menu{
-    background-color: #2C3E50;
-}
-
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; 
+ }
 
 
 /*Login and Register Form Section*/
