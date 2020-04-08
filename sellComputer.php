@@ -75,7 +75,7 @@ include "./navbar.php";
     <label>Price</label><br>
     <input type="number" min="1" step="any" />
   </div>
-  <button type="submit" class="btn btn-primary">Go Back</button>
+  <button  onclick="window.history.go(-1); return false;" class="btn btn-primary">Go Back</button>
   <button type="submit" class="btn btn-primary">Sell</button>
 </form>
 	<?php include "./footer.php"; ?>

@@ -9,24 +9,25 @@ session_start();
 		//DB connection
         $db = new PDO($dsn, $user, $pw);
         
-        #register value from form inputs
-		$username = $_POST['username'];
-		$password = $_POST['password'];
+        #register value from form Admin inputs
+		$username = $_POST['adminName'];
+		$password = $_POST['adminPass'];
 
 		//Check whethere if the Account exists
-		$statement = $db->prepare("select * from user where username = '$username' and password = '$password'");
+		$statement = $db->prepare("select * from admin where username = '$username' and password = '$password'");
 		$statement->execute();
 
 		if($statement->rowCount() > 0) { 
-			$_SESSION['username'] = $username; 
+            //Store admin username in Session
+			$_SESSION['adminName'] = $username; 
 			print "<script type='text/javascript'>
-			alert('You have logged in $username');
-			window.location.href = 'index.php';
+			alert('Welcome Admin: $username');
+			window.location.href = 'adminIndex.php';
 			</script>";
-		}
-
+        }
+        
 ?>
 		<script type="text/javascript">
-		alert("You have not registered or incorrect password");
-		window.location.href = "register.php";
+		alert("Try again, Admin");
+		window.location.href = "adminLogin.php";
         </script>

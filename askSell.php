@@ -1,10 +1,6 @@
 <?php
 session_start(); 
 $page_title= "Sell";
-# [START use_cloud_storage_tools]
-use google\appengine\api\cloud_storage\CloudStorageTools;
-# [END use_cloud_storage_tools]
-
 
 include "./header.php"; 
 include "./navbar.php";
@@ -12,12 +8,14 @@ include "./navbar.php";
 if (isset($_POST['nextSell'])) {
     $selected_radio = $_POST['product'];
     if ($selected_radio == 'phone') {
-        header("Location: http://localhost/project/rocket-market/sellPhone.php");
-        exit();
+        print "<script type='text/javascript'>
+			window.location.href = 'sellPhone.php';
+			</script>";
     }
     else if ($selected_radio == 'computer') {
-        header("Location: http://localhost/project/rocket-market/sellComputer.php");
-        exit();
+        print "<script type='text/javascript'>
+			window.location.href = 'sellComputer.php';
+			</script>";
     }
 }
 ?>
@@ -28,6 +26,7 @@ if (isset($_POST['nextSell'])) {
   <label for="phone">Phone</label><br>
   <input type="radio" id="computer" name="product" value="computer">
   <label for="computer">Computer</label><br>
+
   <input type="submit" name="nextSell" value="next" />
 </form>
 	<?php include "./footer.php"; ?>
