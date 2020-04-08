@@ -1,7 +1,7 @@
 <?php
 print"
 <body> 
-<nav class='navbar navbar-default' id='navbar'>
+<nav class='navbar navbar-inverse'>
    <div class='container-fluid'>
        
         <!-- LOGO -->
@@ -29,9 +29,6 @@ print"
          <li><a href='#'>Favourite</a></li>
          <li><a href='#'> Cart</a></li>
         </ul>
-
-
-    
    </div>
 </nav>";
 ?>
