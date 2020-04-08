@@ -30,37 +30,37 @@ include "./navbar.php";
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Brand</label>
-      <input type="text" class="form-control" id="pcbrand" placeholder="Brand name of the desktop">
+      <input type="text" class="form-control" id="lapbrand" placeholder="Brand name of the laptop">
     </div>
     <div class="form-group col-md-6">
       <label>Processor Type</label>
-      <input type="text" class="form-control" id="pcprotype" placeholder="Intel or AMD">
+      <input type="text" class="form-control" id="lapprotype" placeholder="Intel or AMD">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Processor Core</label>
-      <input type="text" class="form-control" id="pcprocore" placeholder="Dual-core, Quad-core, Hexa-core">
+      <input type="text" class="form-control" id="lapprocore" placeholder="Dual-core, Quad-core, Hexa-core">
     </div>
     <div class="form-group col-md-6">
       <label>RAM (GB)</label>
-      <input type="text" class="form-control" id="pcram" placeholder="RAM sizes">
+      <input type="text" class="form-control" id="lapram" placeholder="RAM sizes">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Storage</label>
-      <input type="text" class="form-control" id="pcstorage" placeholder="Total storage">
+      <input type="text" class="form-control" id="lapstorage" placeholder="Total storage">
     </div>
     <div class="form-group col-md-6">
       <label>Operating System</label>
-      <input type="password" class="form-control" id="pcos" placeholder="Windows 10, Chrome OS, Linux...">
+      <input type="password" class="form-control" id="lapos" placeholder="Windows 10, Chrome OS, Linux...">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Color</label>
-      <input type="email" class="form-control" id="pccolor" placeholder="Color of your computer">
+      <input type="email" class="form-control" id="lapcolor" placeholder="Color of your laptop">
     </div>
     
   <div class="form-group">

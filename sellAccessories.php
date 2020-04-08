@@ -28,27 +28,11 @@ include "./navbar.php";
     </select>
   </div>
   <div class="form-group">
-  <label>Brand:
-    <input list="brand" name="brand" /></label>
-    <datalist id="brand">
-    <option value="Iphone">
-    <option value="Samsung">
-    <option value="HTC">
-    <option value="Xaomi">
-    <option value="LG">
-    <option value="Google">
-    </datalist>
+  <label>Brand</label>
+    <input type="text" class="form-control" id="lapbrand" placeholder="Brand name of the accessories">
   </div>
   <div class="form-group">
-    <label>Model</label>
-    <input type="text" class="form-control-file">
-  </div>
-  <div class="form-group">
-    <label>Phone Operating System</label>
-    <input type="text" class="form-control-file">
-  </div>
-  <div class="form-group">
-    <label>Internal Memory</label>
+    <label>Accesory type</label>
     <input type="text" class="form-control-file">
   </div>
   <div class="form-group">
