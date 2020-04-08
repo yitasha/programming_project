@@ -4,8 +4,6 @@
     border-radius: 0px !important;
     background-color: #2C3E50 !important; 
     border-color: #2C3E50 !important;
-    height: 80px;
-    padding-top: 10px;
 }
 
 a{
@@ -211,6 +209,9 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: rgb(226, 71, 105);
 }
+
+
+/*Footer Section*/
 
 
 
