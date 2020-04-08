@@ -1,6 +1,16 @@
 <?php 
 session_start();
+	$username = $_SESSION['username'];
+	if(isset($username))
+	{
+		print "<script type='text/javascript'>
+		alert('You have already logged in!');
+		window.location.href = 'index.php';
+	    </script>";
+	}
+
 $page_title= "Login";
+
 
 include "./header.php"; 
 include "./navbar.php";
