@@ -1,5 +1,9 @@
 <?php
 session_start();
+# [START use_cloud_storage_tools]
+use google\appengine\api\cloud_storage\CloudStorageTools;
+# [END use_cloud_storage_tools]
+
     // Instantiate your DB using the database host, port, name, username, and password
     $dsn = getenv('MYSQL_DSN');
     $user = getenv('MYSQL_USER');
@@ -34,22 +38,14 @@ session_start();
     $statement = $db->prepare("INSERT INTO phone (phoneid, images, phonename, phonecond, brand, model, phoneos, phonemem, phonestorage, phonecol, phonescreen, phonecam, description, price, user_userid)
     VALUES (null, '$imgname','$phonename','$phonecond','$brand', '$model','$phoneos','$phonemem', '$phonestorage', '$phonecol', '$phonescreen', '$phonecam', '$description', '$price','$user_userid')");
 
-    $check = $statement->execute();
-    /*
-    if($check)
-    {
-        print "<script type='text/javascript'>
-			alert('You have added an new Phone');
-			window.location.href = 'index.php';
-	        </script>";
-    }
-    else {
-        print "<script type='text/javascript'>
-			alert('Error something went wrong!');
-			window.location.href = 'index.php';
-	        </script>";
-    }
-    */
-    echo "$phonename, $name, $imgname, $phonecond, $brand, $model, $phoneos, $phonemem, $phonestorage
-    , $phonecol, $phonescreen, $phonecam, $description, $price, $user_userid ";
+    $statement->execute();
+    
+    print "<script type='text/javascript'>
+		alert('You have added an new Phone');
+		window.location.href = 'index.php';
+	    </script>";
+  
+    
+    //echo "$phonename, $name, $imgname, $phonecond, $brand, $model, $phoneos, $phonemem, $phonestorage
+    //, $phonecol, $phonescreen, $phonecam, $description, $price, $user_userid ";
 ?>

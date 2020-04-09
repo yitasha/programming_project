@@ -51,11 +51,11 @@ include "./navbar.php";
     </div>
     <div class="form-group">
       <label>Memory or Ram Size:</label>
-      <input type="text" name="phonemem" class="form-control-file" style="width:100%;">
+      <input type="number" name="phonemem" class="form-control-file" style="width:100%;">
     </div>
     <div class="form-group" >
       <label>Storage Capacity:</label>
-      <input type="text" name="phonestorage" class="form-control-file" style="width:100%;">
+      <input type="number" name="phonestorage" class="form-control-file" style="width:100%;">
     </div>
     <div class="form-group">
       <label>Color:</label>
@@ -69,13 +69,13 @@ include "./navbar.php";
       <label>Camera resolution in MP:</label>
       <input type="text" name="phonecam" class="form-control-file" style="width:100%;">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-12">
       <label>Description:</label>
       <textarea class="form-control" name="description" rows="4"></textarea>
     </div>
     <div class="form-group">
       <label>Price In Whole Number:</label><br>
-      $ <input type="number" name="price" min="1" step="any"/>
+      $ <input type="number" name="price" min="1">
     </div>
 
     <button  onclick="window.history.go(-1); return false;" class="btn btn-primary">Go Back</button>
