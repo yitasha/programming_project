@@ -26,13 +26,12 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     $phonecam = $_POST['phonecam'];
     $description = $_POST['description'];
     $price = $_POST['price'];
-    $name = $_POST['image'];
 
     //fileupload
     $imgname = $_FILES['image']['name']; //define name from img -> name
 	
     $location = $_FILES['image']['tmp_name']; //store in tmp location and move later
-    //Move uploaded image to google bucket
+    //Move uploaded image to google bucket: phone
     move_uploaded_file($location, 'gs://phoneimg/'. $imgname); 
 
     $statement = $db->prepare("INSERT INTO phone (phoneid, images, phonename, phonecond, brand, model, phoneos, phonemem, phonestorage, phonecol, phonescreen, phonecam, description, price, user_userid)

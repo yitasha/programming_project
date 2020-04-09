@@ -43,9 +43,10 @@ include "./navbar.php";
         <label>Computer Brand</label>
         <input list="pcbrand" name="pcbrand" class="form-control" style="width:95.4%">
         <datalist id="pcbrand">
-          <option value="Windows">
-          <option value="Mac OS">
-          <option value="Linux">
+          <option value="HP">
+          <option value="Apple">
+          <option value="Asus">
+          <option value="Dell">
         </datalist>
     </div>
   </div>

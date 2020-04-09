@@ -12,7 +12,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     //DB connection
     $db = new PDO($dsn, $user, $pw);
 
-    //Data from sellPhone.php form
+    //Data from sellComputer.php form
 	$user_userid = $_SESSION['userid'];
     $pcname = $_POST['pcname'];
     $pctype = $_POST['pctype'];
@@ -21,6 +21,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     $pcgpu = $_POST['pcgpu'];
     $pccpu = $_POST['pccpu'];
     $pcram = $_POST['pcram'];
+    $pcstorage = $_POST['pcstorage'];
     $pcos = $_POST['pcos'];
     $pccolor = $_POST['pccolor'];
     $description = $_POST['description'];
@@ -30,11 +31,11 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     $imgname = $_FILES['image']['name']; //define name from img -> name
 	
     $location = $_FILES['image']['tmp_name']; //store in tmp location and move later
-    //Move uploaded image to google bucket
+    //Move uploaded image to google bucket: computer
     move_uploaded_file($location, 'gs://computerimg/'. $imgname); 
 
     $statement = $db->prepare("INSERT INTO computer (computerid, pcname, images, pctype, pccond, pcbrand, pcgpu, pccpu, pcram, pcstorage, pcos, pccolor, description, price, user_userid)
-    VALUES (null,'$pcname','$imgname','$pctype', '$pccond','$pcbrand','$pcgpu','$pccpu','$pcram','$pcstorage','$pcos','$pccolor','$description','$price','$user_userid)");
+    VALUES (null,'$pcname','$imgname','$pctype', '$pccond','$pcbrand','$pcgpu','$pccpu','$pcram','$pcstorage','$pcos','$pccolor','$description','$price','$user_userid')");
 
     $statement->execute();
     
