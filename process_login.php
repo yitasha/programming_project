@@ -17,8 +17,22 @@ session_start();
 		$statement = $db->prepare("select * from user where username = '$username' and password = '$password'");
 		$statement->execute();
 
+		$user = $db->prepare("select * from user where username = '$username'");
+		$user->execute();
+		$user->setFetchMode(PDO::FETCH_ASSOC);
+
+
 		if($statement->rowCount() > 0) { 
-			$_SESSION['username'] = $username; 
+			$_SESSION['username'] = $username;
+
+			#Store current logged in user's detail: id, firstname, lastname
+			while ($r = $user->fetch())
+			{
+				$_SESSION['userid'] = $r['userid'];
+				$_SESSION['firstname'] = $r['firstname'];
+				$_SESSION['lastname'] = $r['lastname'];
+			}
+
 			print "<script type='text/javascript'>
 			alert('You have logged in $username');
 			window.location.href = 'index.php';

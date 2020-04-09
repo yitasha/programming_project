@@ -9,19 +9,19 @@ include "./header.php";
 include "./navbar.php";
 ?>
 
-<form action="addProduct.php" method="post" >
+<form action="process_addPhone.php" method="post">
     <div class="form-group">
-      <label>Product Name</label>
-      <textarea class="form-control" rows="1"></textarea>
+      <label>Phone Name</label>
+      <input type="text" name="phonename" class="form-control-file" style="width:100%;">
     </div>
     <div class="form-group">
       <label>Images</label>
-      <input type="file" name = "img" class="form-control-file">
+      <input type="file" name="img" class="form-control-file">
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Condition</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>New</option>
+      <select class="form-control" name="phonecond" id="exampleFormControlSelect1">
+        <option>Brand New</option>
         <option>Used, but in good condition</option>
         <option>Used, but in okay condition</option>
         <option>Broken</option>
@@ -40,25 +40,26 @@ include "./navbar.php";
           <option value="Google">
         </datalist>
     </div>
+
     <div class="form-group">
       <label>Model:</label>
       <input type="text" name="model" class="form-control-file" style="width:100%;">
     </div>
     <div class="form-group">
       <label>Operating System:</label>
-      <input type="text" class="form-control-file" style="width:100%;">
+      <input type="text" name="phoneos" class="form-control-file" style="width:100%;">
     </div>
     <div class="form-group">
-      <label>Ram Size:</label>
-      <input type="text" name="ram" class="form-control-file" style="width:100%;">
+      <label>Memory or Ram Size:</label>
+      <input type="text" name="phonemem" class="form-control-file" style="width:100%;">
     </div>
     <div class="form-group" >
       <label>Storage Capacity:</label>
-      <input type="text" class="form-control-file" style="width:100%;">
+      <input type="text" name="phonestorage" class="form-control-file" style="width:100%;">
     </div>
     <div class="form-group">
       <label>Color:</label>
-      <input type="text" class="form-control-file" style="width:100%;">
+      <input type="text" name="phonecol" class="form-control-file" style="width:100%;">
     </div>
     <div class="form-group">
       <label>Screensize:</label>
@@ -78,15 +79,15 @@ include "./navbar.php";
     </div>
     <div class="form-group">
       <label>Description:</label>
-      <textarea class="form-control" rows="4"></textarea>
+      <textarea class="form-control" name="description" rows="4"></textarea>
     </div>
     <div class="form-group">
       <label>Price:</label><br>
-      $ <input type="number" min="1" step="any" />
+      $ <input type="number" name="price" min="1" step="any"/>
     </div>
 
     <button  onclick="window.history.go(-1); return false;" class="btn btn-primary">Go Back</button>
-    <button type="submit" class="btn btn-primary">Sell</button>
+    <button type="submit" name="submit" class="btn btn-primary">Sell</button>
 </form>
 	<?php include "./footer.php"; ?>
 </body>
