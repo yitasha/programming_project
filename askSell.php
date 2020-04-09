@@ -2,22 +2,31 @@
 session_start(); 
 $page_title= "Sell";
 
-include "./header.php"; 
-include "./navbar.php";
+  
+	if(!isset($_SESSION['userid']))
+	{
+		print "<script type='text/javascript'>
+		alert('Please login first!');
+		window.location.href = 'login.php';
+	    </script>";
+	}
+  include "./header.php"; 
+  include "./navbar.php";
 
-if (isset($_POST['nextSell'])) {
-    $selected_radio = $_POST['product'];
-    if ($selected_radio == 'phone') {
-        print "<script type='text/javascript'>
-			window.location.href = 'sellPhone.php';
-			</script>";
-    }
-    else if ($selected_radio == 'computer') {
-        print "<script type='text/javascript'>
-			window.location.href = 'sellComputer.php';
-			</script>";
-    }
-}
+  if (isset($_POST['nextSell'])) 
+  {
+      $selected_radio = $_POST['product'];
+      if ($selected_radio == 'phone') {
+          print "<script type='text/javascript'>
+        window.location.href = 'sellPhone.php';
+        </script>";
+      }
+      else if ($selected_radio == 'computer') {
+          print "<script type='text/javascript'>
+        window.location.href = 'sellComputer.php';
+        </script>";
+      }
+  }
 ?>
 
 <form method="post">

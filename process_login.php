@@ -24,7 +24,7 @@ session_start();
 
 		if($statement->rowCount() > 0) { 
 			$_SESSION['username'] = $username;
-
+ 
 			#Store current logged in user's detail: id, firstname, lastname
 			while ($r = $user->fetch())
 			{
