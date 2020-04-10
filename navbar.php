@@ -35,7 +35,7 @@ print"
 
 <?php
       print"
-        <li class='dropdown'><a class='dropdown-toggle' class='navBarIcons' data-toggle='dropdown'><img src='imgs/account-256.png' style='width:30px;height:auto;'></a>
+        <li class='dropdown'><a class='dropdown-toggle' class='navBarIcons' data-toggle='dropdown'><img src='imgs/account-256.png' style='width:20px;height:auto;'></a>
             <ul class='dropdown-menu'>
                 <li><a href='login.php'>Login</a></li>
                  <li><a href='register.php'>Register</a></li>"
@@ -53,8 +53,8 @@ print"
                  <li><a href='adminLogin.php'>Admin</a></li>
                </ul>
            </li>
-         <li><a href='#'><img src='imgs/favourite-256.png' style='width:30px;height:auto;'></a></li>
-         <li><a href='#'><img src='imgs/cart-512.png' style='width:30px;height:auto;'></a></li>
+         <li><a href='#'><img src='imgs/favourite-256.png' style='width:20px;height:auto;'></a></li>
+         <li><a href='#'><img src='imgs/cart-512.png' style='width:20px;height:auto;'></a></li>
         </ul>
    </div>
 </nav>";
