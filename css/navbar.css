@@ -14,6 +14,10 @@ a{
     color: #ffffff !important;
 }
 
+.navbar-inverse .navbar-nav>li>a:hover {
+    border-bottom: 3px solid #A27E59 !important;   
+}
+
 .navbar-nav > li{
     padding-left:10px;
     padding-right:10px;
