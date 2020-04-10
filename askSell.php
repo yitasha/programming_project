@@ -3,13 +3,13 @@ session_start();
 $page_title= "Sell";
 
   
-/*	if(!isset($_SESSION['userid']))
+	if(!isset($_SESSION['userid']))
 	{
 		print "<script type='text/javascript'>
 		alert('Please login first!');
 		window.location.href = 'login.php';
 	    </script>";
-	}*/
+	}
   include "./header.php"; 
   include "./navbar.php";
 
