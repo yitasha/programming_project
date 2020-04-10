@@ -1,35 +1,43 @@
 <?php
 session_start(); 
 $page_title= "Sell";
-# [START use_cloud_storage_tools]
-use google\appengine\api\cloud_storage\CloudStorageTools;
-# [END use_cloud_storage_tools]
 
+  
+	if(!isset($_SESSION['userid']))
+	{
+		print "<script type='text/javascript'>
+		alert('Please login first!');
+		window.location.href = 'login.php';
+	    </script>";
+	}
+  include "./header.php"; 
+  include "./navbar.php";
 
-include "./header.php"; 
-include "./navbar.php";
-
-if (isset($_POST['nextSell'])) {
-    $selected_radio = $_POST['product'];
-    if ($selected_radio == 'phone') {
-        header("Location: http://localhost/project/rocket-market/sellPhone.php");
-        exit();
+  if (isset($_POST['nextSell'])) 
+  {
+      $selected_radio = $_POST['product'];
+      if ($selected_radio == 'phone') {
+          print "<script type='text/javascript'>
+        window.location.href = 'sellPhone.php';
+        </script>";
+      }
+      else if ($selected_radio == 'laptop') {
+        print "<script type='text/javascript'>
+        window.location.href = 'sellLaptop.php';
+        </script>";
     }
-    else if ($selected_radio == 'computer') {
-        header("Location: http://localhost/project/rocket-market/sellComputer.php");
-        exit();
-    }
 
-    else if ($selected_radio == 'laptop') {
-        header("Location: http://localhost/project/rocket-market/sellLaptop.php");
-        exit();
+      else if ($selected_radio == 'accessories') {
+        print "<script type='text/javascript'>
+        window.location.href = 'sellAccessories.php';
+        </script>";
     }
-
-    else if ($selected_radio == 'accessories') {
-        header("Location: http://localhost/project/rocket-market/sellAccessories.php");
-        exit();
-    }
-}
+      else if ($selected_radio == 'computer') {
+          print "<script type='text/javascript'>
+        window.location.href = 'sellComputer.php';
+        </script>";
+      }
+  }
 ?>
 
 <form method="post">
@@ -42,7 +50,6 @@ if (isset($_POST['nextSell'])) {
   <label for="computer">Laptop</label><br>
   <input type="radio" id="accessories" name="product" value="accessories">
   <label for="computer">Accessories</label><br>
-
   <input type="submit" name="nextSell" value="next" />
 </form>
 	<?php include "./footer.php"; ?>
