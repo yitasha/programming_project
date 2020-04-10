@@ -9,7 +9,7 @@ include "./header.php";
 include "./navbar.php";
 ?>
 
-<form action="process_addPhone.php" method="post" enctype="multipart/form-data">
+<form action="process_addPhone.php" method="post" enctype="multipart/form-data" class="formContent">
     <div class="form-group">
       <label>Phone Name</label>
       <input type="text" name="phonename" style="width:100%;">

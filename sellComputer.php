@@ -10,7 +10,7 @@ include "./header.php";
 include "./navbar.php";
 ?>
 
-<form action="process_addComputer.php" method="post" enctype="multipart/form-data">
+<form action="process_addComputer.php" method="post" enctype="multipart/form-data" class="formContent">
 <div class="form-group col-md-12">
     <label>Computer Name</label>
     <input type="text" name="pcname" style="width:98%;">

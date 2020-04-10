@@ -10,7 +10,7 @@ include "./header.php";
 include "./navbar.php";
 ?>
 
-<form>
+<form class="formContent">
   <div class="form-group">
     <label>Product Name</label>
     <textarea class="form-control" rows="1"></textarea>
@@ -36,7 +36,7 @@ include "./navbar.php";
     <input type="text" class="form-control-file">
   </div>
   <div class="form-group">
-    <label>Color</label>
+    <label>Color</label></br>
     <input type="text" class="form-control-file">
   </div>
   <div class="form-group">

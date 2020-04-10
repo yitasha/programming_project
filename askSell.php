@@ -3,13 +3,13 @@ session_start();
 $page_title= "Sell";
 
   
-	if(!isset($_SESSION['userid']))
+/*	if(!isset($_SESSION['userid']))
 	{
 		print "<script type='text/javascript'>
 		alert('Please login first!');
 		window.location.href = 'login.php';
 	    </script>";
-	}
+	}*/
   include "./header.php"; 
   include "./navbar.php";
 
@@ -47,9 +47,9 @@ $page_title= "Sell";
   <input type="radio" id="computer" name="product" value="computer">
   <label for="computer">Computer</label><br>
   <input type="radio" id="laptop" name="product" value="laptop">
-  <label for="computer">Laptop</label><br>
+  <label for="laptop">Laptop</label><br>
   <input type="radio" id="accessories" name="product" value="accessories">
-  <label for="computer">Accessories</label><br>
+  <label for="accessories">Accessories</label><br>
   <input type="submit" name="nextSell" value="next" />
 </form>
 	<?php include "./footer.php"; ?>
