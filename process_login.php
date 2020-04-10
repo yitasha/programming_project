@@ -34,7 +34,6 @@ session_start();
 			}
 
 			print "<script type='text/javascript'>
-			alert('You have logged in $username');
 			window.location.href = 'index.php';
 			</script>";
 		}

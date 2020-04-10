@@ -3,7 +3,6 @@
 	$_SESSION['username'] = $username;
 
 	print "<script type='text/javascript'>
-	alert('You have logged out $username');
 	window.location.href = 'index.php';
 	</script>";
 
