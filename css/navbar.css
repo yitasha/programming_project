@@ -10,6 +10,29 @@
     margin-top: 5px !important;
 }
 
+.sub-menu {
+    margin-top: 5px;
+    float: left;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.sub-menu>li>a{
+    text-decoration: none;
+}  
+.sub-menu .menu-title {
+    display: block;
+    margin-top: 5px;  
+}
+
+.sub-menu:hover {
+    border-bottom: 3px solid #A27E59 !important;   
+}
+
+span{
+    color:white;
+}
+
 a{
     font-family: 'Roboto', sans-serif !important;
 }
