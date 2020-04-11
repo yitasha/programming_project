@@ -2,8 +2,12 @@
 
 .navbar {
     border-radius: 0px !important;
-    background-color: #2C3E50 !important; 
-    border-color: #2C3E50 !important;
+    background-color: rgb(255, 255, 255) !important; 
+    border-color: rgb(255, 255, 255) !important;
+}
+
+.navbar-inverse {
+    margin-bottom: 0 !important;
 }
 
 .navbar-nav {
@@ -26,11 +30,11 @@
 }
 
 .sub-menu:hover {
-    border-bottom: 3px solid #A27E59 !important;   
+    border-bottom: 3px solid #F74A4A !important;   
 }
 
 span{
-    color:white;
+    color:rgb(0, 0, 0);
 }
 
 a{
@@ -38,11 +42,11 @@ a{
 }
 
 .navbar-inverse .navbar-nav>li>a {
-    color: #ffffff !important;
+    color: #000000 !important;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
-    border-bottom: 3px solid #A27E59 !important;   
+    border-bottom: 3px solid #F74A4A !important;   
 }
 
 .navbar-nav > li{
@@ -51,24 +55,24 @@ a{
   }
 
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
-    color: #fff !important;
+    color: rgb(0, 0, 0) !important;
     background-color: rgb(30, 43, 56) !important;
     transition-delay:s !important;
 }
 
 .dropdown-menu {
-    background-color:#2C3E50 !important;
+    background-color:white !important;
 }
 
 .dropdown-menu>li>a {
-    color:white !important;
+    color:black !important;
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     background-image:none !important;
 }
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    background-color:rgb(30, 43, 56) !important;
+    background-color:#F74A4A  !important;
     color:white !important;
 }
 
@@ -109,6 +113,8 @@ a{
     align-items: center;
     flex-direction: column; 
 }
+
+
 
 /* Removed because it will make screen into a small box
 body {
@@ -287,17 +293,30 @@ input[type=number] {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s !important;
 }
 
+/*Body Section*/
+
+.headingContainer{
+    text-align: center;
+    background-color: #C4FCFC;
+    height: 200px;
+    padding: 30px;
+}
 
 .row{
     margin-bottom: 50px !important;
 }
+
+.card{
+    background-color: white !important;
+}
+
 
 
 /*Footer Section*/
 
 footer{
 	margin-top: 30%;
-	border-top:1px solid black;
+	border-top:1px solid #F74A4A;
     padding-top:20px;
     text-align: center;
 }

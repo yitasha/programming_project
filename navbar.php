@@ -33,7 +33,7 @@ print"
 <?php
       print"
       <div class='sub-menu'>
-      <li class='dropdown'><a class='dropdown-toggle' class='navBarIcons' data-toggle='dropdown'><img src='imgs/account-256.png' style='width:20px;height:auto;'><span class='menu-title'>Account</span></a>
+      <li class='dropdown'><a class='dropdown-toggle' class='navBarIcons' data-toggle='dropdown'><img src='imgs/accountRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>Account</span></a>
             <ul class='dropdown-menu'>
                 <li><a href='login.php'>Login</a></li>
                  <li><a href='register.php'>Register</a></li>"
@@ -53,10 +53,10 @@ print"
                </div>
            </li>
            <div class='sub-menu'>
-            <li><a href='#'><img src='imgs/favourite-256.png' style='width:20px;height:auto;'><span class='menu-title'>favourite</span></a></li>
+            <li><a href='#'><img src='imgs/favouriteRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>favourite</span></a></li>
           </div>
           <div class='sub-menu'>
-            <li><a href='register.php'><img src='imgs/cart-512.png' style='width:20px;height:auto;'><span class='menu-title'>cart</span></a></li>
+            <li><a href='register.php'><img src='imgs/cartRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>cart</span></a></li>
           </div>
         </ul>
    </div>
