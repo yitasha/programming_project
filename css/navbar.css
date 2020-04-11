@@ -287,6 +287,12 @@ input[type=number] {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s !important;
 }
 
+
+.row{
+    margin-bottom: 50px !important;
+}
+
+
 /*Footer Section*/
 
 footer{
