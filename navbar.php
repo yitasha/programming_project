@@ -6,7 +6,7 @@ print"
        
         <!-- LOGO -->
         <div class='navbar-header'>
-        <a href='./index.php'><img class='navbar-brand'  src='imgs/logo.png' style='width:50px;height:auto;'> </a>
+        <a href='./index.php'><img class='navbar-brand'  src='imgs/logo.png' style='width:60px;height:auto;'> </a>
         </div>
 
         <!-- left side navbar -->

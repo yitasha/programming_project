@@ -6,6 +6,10 @@
     border-color: #2C3E50 !important;
 }
 
+.navbar-nav {
+    margin-top: 5px !important;
+}
+
 a{
     font-family: 'Roboto', sans-serif !important;
 }
