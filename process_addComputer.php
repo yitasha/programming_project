@@ -29,16 +29,17 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 
     //fileupload
     $imgname = $_FILES['image']['name']; //define name from img -> name
-	
     $location = $_FILES['image']['tmp_name']; //store in tmp location and move later
+    
+    $statement = $db->prepare("INSERT INTO computer (computerid, pcname, images, pctype, pccond, pcbrand, pcgpu, pccpu, pcram, pcstorage, pcos, pccolor, description, price, user_userid)
+    VALUES (null,'$pcname','$imgname','$pctype', '$pccond','$pcbrand','$pcgpu','$pccpu','$pcram','$pcstorage','$pcos','$pccolor','$description','$price','$user_userid')");
+    $statement->execute();
+
     //Move uploaded image to google bucket: computer
     move_uploaded_file($location, 'gs://computerimg/'. $imgname); 
 
-    $statement = $db->prepare("INSERT INTO computer (computerid, pcname, images, pctype, pccond, pcbrand, pcgpu, pccpu, pcram, pcstorage, pcos, pccolor, description, price, user_userid)
-    VALUES (null,'$pcname','$imgname','$pctype', '$pccond','$pcbrand','$pcgpu','$pccpu','$pcram','$pcstorage','$pcos','$pccolor','$description','$price','$user_userid')");
 
-    $statement->execute();
-    
+    sleep(1); //Give it buffer 1 second
     print "<script type='text/javascript'>
 		alert('You have added an new Computer');
 		window.location.href = 'index.php';

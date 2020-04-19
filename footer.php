@@ -1,6 +1,8 @@
 <?php
-	print "<footer>
-	<p>&copy;2020 Rocket Market @RMIT</p>
-	<p>Allen | Stanley | Yi | Tay</p>
-	</footer>";
+	print '<footer>
+	<h5>Allen | Stanley | Yi | Tay</h5>
+	<h5>&copy;2020 Rocket Market @RMIT</h5>
+	</footer>;'
 ?>
+
+
