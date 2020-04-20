@@ -21,8 +21,23 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     <div class="row">
     <?php
       #This page is for redirect to individual Phone product
-      $productID = $_GET['productID']; #productID from url variables
-		
+      $productID = $_GET['productID'];#productID from url variables
+      $userID = $_GET['userID'];#userID from url variables
+
+      #Fetch user table
+      $userdata = $db->prepare("select * from user where userid = '$userID'");
+      $userdata->execute();
+      $rows = $userdata->fetchAll(PDO::FETCH_ASSOC);
+  
+      foreach($rows as $row)
+      {
+        $firstname = $row['firstname'];
+        $lastname = $row['lastname'];
+        $phone = $row['phone'];
+        $email = $row['email'];
+      }
+
+      #Fetch phone table
       $statement = $db->prepare("select * from phone where phoneid = '$productID'");
       $statement->execute();
       $statement->setFetchMode(PDO::FETCH_ASSOC);
@@ -36,7 +51,9 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
             
             <div class='col-md-6 sellerProfile d-flex justify-content-center'>
                   <img src='imgs/sellerOne.jpg' style='width:20rem;height:auto' alt='user profile pic'>
-                  <h5>Seller One</h5></br>
+                  <h4>$firstname $lastname</h4>
+                  <h5>Phone: $phone</h5>
+                  <h5>Email: $email</h5></br>
                   <button type='button' class='btn btn-primary productPageButtonSell'>Buy</button>
                   <button type='button' class='btn btn-outline-secondary productPageButton'>Contact Seller</button>
             </div>
