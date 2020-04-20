@@ -20,7 +20,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 <div class="container">
     <div class="row">
     <?php
-      $productID = $_GET['productID'];
+      #This page is for redirect to individual Computer product
+      $productID = $_GET['productID'];#productID from url variables
 		
       $statement = $db->prepare("select * from computer where computerid = '$productID'");
       $statement->execute();
