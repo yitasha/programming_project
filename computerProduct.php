@@ -45,8 +45,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
       {
           print "
             <div class='col-md-6'>
-                <h2>{$r['pcname']}   -   $ {$r['price']}</h2>
-                <img src='https://storage.googleapis.com/computerimg/{$r['images']}' class='responsive' style='width:600px;height:600px' alt='product pic'>
+                <h4 style='margin-bottom:50px;'>{$r['pcname']}   -   $ {$r['price']}</h4>
+                <img src='https://storage.googleapis.com/computerimg/{$r['images']}' class='responsive' style='width:auto;height:200px' alt='product pic'>
             </div>
 
             <div class='col-md-6 sellerProfile d-flex justify-content-center'>
@@ -67,47 +67,55 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 
                 <div class='tab-content'>
                     <div id='description' class='tab-pane fade in active'>
-                      <p><br><strong>{$r['description']}</strong></p>
+                      <p><br>{$r['description']}</p>
                     </div>
                     <div id='specs' class='tab-pane fade'>
                     <br>
-                    <table style='width:80%' >
+
+                    <table class='table table-bordered table-sm' style='width:60%'>
+                    <tbody>
                       <tr>
-                        <th>Computer Type</th>
-                        <th>{$r['pctype']}</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Condition</th>
-                        <th>{$r['pccond']}</th>
+                        <th scope='row'>Computer Type:</th>
+                        <td>{$r['pctype']}</td>
                       </tr>
                       <tr>
-                        <th>Brand</th>
-                        <th>{$r['pcbrand']}</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Operating System</th>
-                        <th>{$r['pcos']}</th>
+                        <th scope='row'>Condition</th>
+                        <td>{$r['pccond']}</td>
                       </tr>
                       <tr>
-                        <th>CPU</th>
-                        <th>{$r['pccpu']}</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Graphics Card</th>
-                        <th>{$r['pcgpu']}</th>
+                        <th scope='row'>Brand:</th>
+                        <td>{$r['pcbrand']}</td>
                       </tr>
                       <tr>
-                        <th>Storage</th>
-                        <th>{$r['pcstorage']} GB</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>RAM</th>
-                        <th>{$r['pcram']} GB</th>
+                        <th scope='row'>Operating System:</th>
+                        <td>{$r['pcos']}</td>
                       </tr>
                       <tr>
-                        <th>Color</th>
-                        <th>{$r['pccolor']}</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Price</th>
-                        <th>$ {$r['price']}</th>
+                        <th scope='row'>CPU:</th>
+                        <td>{$r['pccpu']}</td>
                       </tr>
-                    </table>
+                      <tr>
+                        <th scope='row'>Graphics Card:</th>
+                        <td>{$r['pcgpu']}</td>
+                      </tr>
+                      <tr>
+                        <th scope='row'>Storage:</th>
+                        <td>{$r['pcstorage']} GB</td>
+                      </tr>
+                      <tr>
+                        <th scope='row'>RAM:</th>
+                        <td>{$r['pcram']} GB</td>
+                      </tr>
+                      <tr>
+                        <th scope='row'>Color:</th>
+                        <td>{$r['pccolor']}</td>
+                      </tr>
+                      <tr>
+                        <th scope='row'>Price:</th>
+                        <td>$ {$r['price']}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                     </div>
                 </div>
             </div>

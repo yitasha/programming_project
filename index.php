@@ -44,7 +44,7 @@ include "./navbar.php";
 			while ($r = $top1->fetch()) 
 			{
 			print "<a href='computerProduct.php?productID={$r['computerid']}&userID={$r['user_userid']}' class='fill-div'>
-			<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' style='width:18rem;height:200px' alt='productOne'>
+			<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' alt='productOne'>
 				<div class='card-body'>
 					<h5 class='card-title'>{$r['pcname']}</h5>
 					<p class='card-text'>{$r['description']}</p>
@@ -64,7 +64,7 @@ include "./navbar.php";
 			while ($r = $top2->fetch()) 
 			{
 			print "<a href='computerProduct.php?productID={$r['computerid']}&userID={$r['user_userid']}' class='fill-div'>
-			<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' style='width:18rem;height:200px' alt='productOne'>
+			<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' alt='productOne'>
 				<div class='card-body'>
 					<h5 class='card-title'>{$r['pcname']}</h5>
 					<p class='card-text'>{$r['description']}</p>
@@ -84,7 +84,7 @@ include "./navbar.php";
 			while ($r = $top3->fetch()) 
 			{
 			print "<a href='phoneProduct.php?productID={$r['phoneid']}&userID={$r['user_userid']}' class='fill-div'>
-			<img class='card-img-top' src='https://storage.googleapis.com/phoneimg/{$r['images']}' style='width:18rem;height:200px' alt='productOne'>
+			<img class='card-img-top' src='https://storage.googleapis.com/phoneimg/{$r['images']}' alt='productOne'>
 				<div class='card-body'>
 					<h5 class='card-title'>{$r['phonename']}</h5>
 					<p class='card-text'>{$r['description']}</p>
@@ -104,7 +104,7 @@ include "./navbar.php";
 			while ($r = $top4->fetch()) 
 			{
 			print "<a href='phoneProduct.php?productID={$r['phoneid']}&userID={$r['user_userid']}' class='fill-div'>
-			<img class='card-img-top' src='https://storage.googleapis.com/phoneimg/{$r['images']}' style='width:18rem;height:200px' alt='productOne'>
+			<img class='card-img-top' src='https://storage.googleapis.com/phoneimg/{$r['images']}'alt='productOne'>
 				<div class='card-body'>
 					<h5 class='card-title'>{$r['phonename']}</h5>
 					<p class='card-text'>{$r['description']}</p>

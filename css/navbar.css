@@ -298,6 +298,12 @@ input[type=number] {
 .card:hover{
     cursor: pointer;
 }
+  
+.card-img-top{
+    object-fit: contain !important;
+    width: 18rem !important;
+    height: 200px !important;
+}
 
 a.fill-div {
     display: block;
@@ -376,3 +382,4 @@ footer p{
     background-color: #F74A4A !important;
     border-color: #F74A4A !important;
 }
+

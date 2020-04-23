@@ -45,8 +45,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
       {
           print "
             <div class='col-md-6'>
-                <h2>{$r['phonename']}   -   $ {$r['price']}</h2>
-                <img src='https://storage.googleapis.com/phoneimg/{$r['images']}' class='responsive' style='width:600px;height:600px' alt='product pic'>
+                <h4 style='margin-bottom:50px;'>{$r['phonename']}   -   $ {$r['price']}</h4>
+                <img src='https://storage.googleapis.com/phoneimg/{$r['images']}' class='responsive' style='width:auto;height:200px' alt='product pic'>
             </div>
             
             <div class='col-md-6 sellerProfile d-flex justify-content-center'>
@@ -67,47 +67,54 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 
                 <div class='tab-content'>
                     <div id='description' class='tab-pane fade in active'>
-                      <p><br><strong>{$r['description']}</strong></p>
+                      <p><br>{$r['description']}</p>
                     </div>
                     <div id='specs' class='tab-pane fade'>
                     <br>
-                    <table style='width:80%' >
+                    <table class='table table-bordered table-sm' style='width:60%'>
+                    <tbody>
                       <tr>
-                        <th>Brand</th>
-                        <th>{$r['brand']}</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Condition</th>
-                        <th>{$r['phonecond']}</th>
+                        <th scope='row'>Brand:</th>
+                        <td>{$r['brand']}</td>
                       </tr>
                       <tr>
-                        <th>Model</th>
-                        <th>{$r['model']}</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Operating System</th>
-                        <th>{$r['phoneos']}</th>
+                        <th scope='row'>Condition:</th>
+                        <td>{$r['phonecond']}</td>
                       </tr>
                       <tr>
-                        <th>Camera</th>
-                        <th>{$r['phonecam']}</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Screen Size</th>
-                        <th>{$r['phonescreen']}</th>
+                        <th scope='row'>Model:</th>
+                        <td>{$r['model']}</td>
                       </tr>
                       <tr>
-                        <th>Storage</th>
-                        <th>{$r['phonestorage']} GB</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Memory</th>
-                        <th>{$r['phonemem']} GB</th>
+                        <th scope='row'>Operating System:</th>
+                        <td>{$r['phoneos']}</td>
                       </tr>
                       <tr>
-                        <th>Color</th>
-                        <th>{$r['phonecol']}</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
-                        <th>Price</th>
-                        <th>$ {$r['price']}</th>
+                        <th scope='row'>Camera:</th>
+                        <td>{$r['phonecam']}</td>
                       </tr>
-                    </table>
+                      <tr>
+                        <th scope='row'>Screen Size:</th>
+                        <td>{$r['phonescreen']}</td>
+                      </tr>
+                      <tr>
+                        <th scope='row'>Storage:</th>
+                        <td>{$r['phonestorage']} GB</td>
+                      </tr>
+                      <tr>
+                        <th scope='row'>Memory:</th>
+                        <td>{$r['phonemem']} GB</td>
+                      </tr>
+                      <tr>
+                        <th scope='row'>Color:</th>
+                        <td>{$r['phonecol']}</td>
+                      </tr>
+                      <tr>
+                        <th scope='row'>Price:</th>
+                        <td>$ {$r['price']}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                     </div>
                 </div>
             </div>
