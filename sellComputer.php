@@ -10,69 +10,98 @@ include "./header.php";
 include "./navbar.php";
 ?>
 
-<form>
-  <div class="form-group">
-    <label>Product Name</label>
-    <textarea class="form-control" rows="1"></textarea>
-  </div>
-  <div class="form-group">
-    <label>Images</label>
-    <input type="file" style="width:100%" name="images" class="btn thumbnail" id="images">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Condition</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>New</option>
-      <option>Used, but in good condition</option>
-      <option>Broken</option>
-    </select>
+<form action="process_addComputer.php" method="post" enctype="multipart/form-data" class="formContent">
+<div class="form-group col-md-12">
+    <label>Computer Name</label>
+    <input type="text" name="pcname" style="width:98%;">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Brand</label>
-      <input type="text" class="form-control" id="pcbrand" placeholder="Brand name of the desktop">
+      <label>Images</label>
+      <input type="file" name="image" class="form-control-file">
     </div>
     <div class="form-group col-md-6">
-      <label>Processor Type</label>
-      <input type="text" class="form-control" id="pcprotype" placeholder="Intel or AMD">
+        <label>Computer Type</label>
+        <select class="form-control" name="pctype" style="width:95.4%">
+        <option>Desktop</option>
+        <option>Laptop</option>
+        <option>All In One</option>
+      </select>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Processor Core</label>
-      <input type="text" class="form-control" id="pcprocore" placeholder="Dual-core, Quad-core, Hexa-core">
+      <label >Condition</label>
+      <select class="form-control" name="pccond" style="width:95.4%">
+        <option>Brand New</option>
+        <option>Used, but in good condition</option>
+        <option>Used, but in okay condition</option>
+        <option>Broken</option>
+      </select>
     </div>
     <div class="form-group col-md-6">
-      <label>RAM (GB)</label>
-      <input type="text" class="form-control" id="pcram" placeholder="RAM sizes">
+        <label>Computer Brand</label>
+        <input list="pcbrand" name="pcbrand" class="form-control" style="width:95.4%">
+        <datalist id="pcbrand">
+          <option value="HP">
+          <option value="Apple">
+          <option value="Asus">
+          <option value="Dell">
+        </datalist>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Storage</label>
-      <input type="text" class="form-control" id="pcstorage" placeholder="Total storage">
+      <label>GPU or Graphics Card Model</label>
+      <input type="text" name="pcgpu" class="form-control">
     </div>
     <div class="form-group col-md-6">
-      <label>Operating System</label>
-      <input type="password" class="form-control" id="pcos" placeholder="Windows 10, Chrome OS, Linux...">
+      <label>CPU</label>
+      <input type="text" name="pccpu" class="form-control">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Color</label>
-      <input type="email" class="form-control" id="pccolor" placeholder="Color of your computer">
+      <label>RAM in GB</label>
+      <input type="number" name="pcram" class="form-control" style="width:95.4%">
     </div>
-    
-  <div class="form-group">
-    <label>Description</label>
-    <textarea class="form-control" rows="4"></textarea>
+    <div class="form-group col-md-6">
+      <label>Storage in GB</label>
+      <input type="number" name="pcstorage" class="form-control" style="width:95.4%">
+    </div>
   </div>
-  <div class="form-group">
-    <label>Price</label><br>
-    <input type="number" min="1" step="any" />
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Computer OS</label>
+      <input list="pcos" name="pcos" class="form-control" style="width:95.4%">
+        <datalist id="pcos">
+          <option value="Windows">
+          <option value="Mac OS">
+          <option value="Linux">
+        </datalist>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Computer Color</label>
+      <input type="text" name="pccolor" class="form-control" >
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Go Back</button>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label>Description</label>
+      <textarea class="form-control" name="description" rows="4" style="width:98%"></textarea>
+    </div>
+  </div>
+  <div class="form-group" style="padding-left:10px;">
+      <label>Price In Whole Number:</label><br>
+      <label>$</label><input type="number" name="price" min="1"/>
+  </div>
+
+  <div class="form-row" style="padding-left:10px;">
+  <button  onclick="window.history.go(-1); return false;" class="btn btn-primary">Go Back</button>
   <button type="submit" class="btn btn-primary">Sell</button>
+  </div>
+  
+
 </form>
 	<?php include "./footer.php"; ?>
 </body>
