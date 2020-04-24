@@ -115,20 +115,6 @@ a{
 }
 
 
-
-/* Removed because it will make screen into a small box
-body {
-    max-width: 650px;
-    min-width: 250px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    padding: 100px;
-
-}
-*/
-
 input[type=text] {
     background-color: #f6f6f6;
     border: none;
@@ -260,7 +246,6 @@ input[type=submit]:hover {
     margin-right: 20%;
 }
 
-
 input[type=number] {
     width: 98%;
     background-color:#f6f6f6;
@@ -310,6 +295,23 @@ input[type=number] {
     background-color: white !important;
 }
 
+.card:hover{
+    cursor: pointer;
+}
+  
+.card-img-top{
+    object-fit: contain !important;
+    width: 18rem !important;
+    height: 200px !important;
+}
+
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none !important;
+    color: black !important;
+}
 
 
 /*Footer Section*/
@@ -324,3 +326,60 @@ footer{
 footer p{
     color:black;
 }
+
+/*Ask form*/
+.ask_form{
+    text-align: center !important;
+    margin-left: 20% !important;
+    margin-right: 20% !important;
+}
+
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+[type=radio] + img {
+    cursor: pointer;
+}
+  
+[type=radio]:checked + img {
+    outline: 2px solid #F74A4A;
+}
+
+.askPrductFont{
+    color:white;
+}
+
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 9px;
+    border: solid !important;
+    color: #F74A4A;
+    border-width: 1px !important;
+}
+
+
+/*Product Page*/
+.sellerProfile{
+    margin-top:6%;
+    text-align: center !important;
+}
+
+.productPageButton{
+    border:1px solid !important;
+    border-radius: 10px !important;
+    color: #F74A4A;
+}
+.productPageButtonSell{
+    border-radius: 10px !important;
+    color: white !important;
+    background-color: #F74A4A !important;
+    border-color: #F74A4A !important;
+}
+

@@ -1,17 +1,24 @@
 <?php
 session_start(); 
 $page_title= "Home";
-# [START use_cloud_storage_tools]
+# [START use_cloud_storage_tools] So images cant be retrieved from bucket
 use google\appengine\api\cloud_storage\CloudStorageTools;
 # [END use_cloud_storage_tools]
 
+	// Instantiate your DB using the database host, port, name, username, and password
+    $dsn = getenv('MYSQL_DSN');
+    $user = getenv('MYSQL_USER');
+    $pw = getenv('MYSQL_PASSWORD');
+
+    //DB connection
+    $db = new PDO($dsn, $user, $pw);
 
 include "./header.php"; 
 include "./navbar.php";
 ?>
 
 
-
+<!-- Search bar -->
 <div class="headingContainer">
 	<h1>Rocket Market</h1>
 	<h5>buy, sell, and trade electronics<h5>
@@ -20,66 +27,96 @@ include "./navbar.php";
 	<input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="I am looking for"
 		aria-label="Search">
 		<button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
-
 	</form>
 </div>
 
 
 <div class="container">
+<!-- Top pics section -->
 	<div class="row">
 	<h3>Top Picks</h3>
 	<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/iphone.jpeg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
+			<?php
+			$top1 = $db->prepare("select * from computer order by computerid desc limit 0,1");
+			$top1->execute();
+			$top1->setFetchMode(PDO::FETCH_ASSOC);
+			while ($r = $top1->fetch()) 
+			{
+			print "<a href='computerProduct.php?productID={$r['computerid']}&userID={$r['user_userid']}' class='fill-div'>
+			<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' alt='productOne'>
+				<div class='card-body'>
+					<h5 class='card-title'>{$r['pcname']}</h5>
+					<p class='card-text'>{$r['description']}</p>
+					<p class='card-text'>$ {$r['price']}</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				
-				</ul>
 			</div>
+			</a>";
+			}
+			?>
 		</div>
 		<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/computerOne.jpg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
+			<?php
+			$top2 = $db->prepare("select * from computer order by computerid desc limit 1,1");
+			$top2->execute();
+			$top2->setFetchMode(PDO::FETCH_ASSOC);
+			while ($r = $top2->fetch()) 
+			{
+			print "<a href='computerProduct.php?productID={$r['computerid']}&userID={$r['user_userid']}' class='fill-div'>
+			<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' alt='productOne'>
+				<div class='card-body'>
+					<h5 class='card-title'>{$r['pcname']}</h5>
+					<p class='card-text'>{$r['description']}</p>
+					<p class='card-text'>$ {$r['price']}</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				
-				</ul>
 			</div>
+			</a>";
+			}
+			?>
 		</div>
 		<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/iphone.jpeg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
+			<?php
+			$top3 = $db->prepare("select * from phone order by phoneid desc limit 0,1");
+			$top3->execute();
+			$top3->setFetchMode(PDO::FETCH_ASSOC);
+			while ($r = $top3->fetch()) 
+			{
+			print "<a href='phoneProduct.php?productID={$r['phoneid']}&userID={$r['user_userid']}' class='fill-div'>
+			<img class='card-img-top' src='https://storage.googleapis.com/phoneimg/{$r['images']}' alt='productOne'>
+				<div class='card-body'>
+					<h5 class='card-title'>{$r['phonename']}</h5>
+					<p class='card-text'>{$r['description']}</p>
+					<p class='card-text'>$ {$r['price']}</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				</ul>
 			</div>
+			</a>";
+			}
+			?>
 		</div>
 		<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/computerThree.jpeg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
+			<?php
+			$top4 = $db->prepare("select * from phone order by phoneid desc limit 1,1");
+			$top4->execute();
+			$top4->setFetchMode(PDO::FETCH_ASSOC);
+			while ($r = $top4->fetch()) 
+			{
+			print "<a href='phoneProduct.php?productID={$r['phoneid']}&userID={$r['user_userid']}' class='fill-div'>
+			<img class='card-img-top' src='https://storage.googleapis.com/phoneimg/{$r['images']}'alt='productOne'>
+				<div class='card-body'>
+					<h5 class='card-title'>{$r['phonename']}</h5>
+					<p class='card-text'>{$r['description']}</p>
+					<p class='card-text'>$ {$r['price']}</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				</ul>
 			</div>
+			</a>";
+			}
+			?>
 		</div>
 	</div>
-
+<!-- Recommended section -->
 	<div class="row">
 	<h3>Recommended</h3>
 	<div class="col-sm-3">
@@ -90,8 +127,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">				
-				</ul>
 			</div>
 		</div>
 		<div class="col-sm-3">
@@ -102,8 +137,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">			
-				</ul>
 			</div>
 		</div>
 		<div class="col-sm-3">
@@ -114,8 +147,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				</ul>
 			</div>
 		</div>
 		<div class="col-sm-3">
@@ -126,8 +157,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				</ul>
 			</div>
 		</div>
 	</div>
@@ -142,13 +171,6 @@ include "./navbar.php";
 						<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 						<p class="card-text">$1000</p>
 					</div>
-					<ul class="list-group list-group-flush">
-					
-					</ul>
-					<div class="card-body">
-						<a href="#" class="card-link">Buy</a>
-						<a href="#" class="card-link">Trade</a>
-					</div>
 				</div>
 			</div>
 		<div class="col-sm-3">
@@ -159,10 +181,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				
-				</ul>
-
 			</div>
 		</div>
 		<div class="col-sm-3">
@@ -173,9 +191,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				</ul>
-
 			</div>
 		</div>
 		<div class="col-sm-3">
@@ -186,9 +201,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				</ul>
-
 			</div>
 		</div>
 	</div>
@@ -203,10 +215,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				
-				</ul>
-
 			</div>
 		</div>
 		<div class="col-sm-3">
@@ -217,10 +225,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				
-				</ul>
-
 			</div>
 		</div>
 		<div class="col-sm-3">
@@ -231,9 +235,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				</ul>
-
 			</div>
 		</div>
 		<div class="col-sm-3">
@@ -244,9 +245,6 @@ include "./navbar.php";
 					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
 					<p class="card-text">$1000</p>
 				</div>
-				<ul class="list-group list-group-flush">
-				</ul>
-
 			</div>
 		</div>
 	</div>
