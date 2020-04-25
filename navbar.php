@@ -26,7 +26,7 @@ print"
             if(isset($_SESSION['username']) && !empty($_SESSION['username']) )
             {
               $username = $_SESSION['username'];
-              echo "<li><a href='#'>Welcome $username</a></li>";
+              echo "<li><a href='myProfilePage.php'>Welcome $username</a></li>";
             }
 ?>
 
