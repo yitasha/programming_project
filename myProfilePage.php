@@ -11,7 +11,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     $pw = getenv('MYSQL_PASSWORD');
 
     //DB connection
-   # $db = new PDO($dsn, $user, $pw);
+    $db = new PDO($dsn, $user, $pw);
 
   include "./header.php"; 
   include "./navbar.php";
