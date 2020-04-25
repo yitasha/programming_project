@@ -1,16 +1,17 @@
 <?php 
 
-    session_start();
-    if (isset($_GET['user']))
-    {
-        $user = $_GET['user'];
-        $get_user = $mysqli->query("SELECT * FROM user WHERE username = '$user'");
-    if ($get_user->num_rows == 1)
-    {
-        $profile_data = $get_user->fetch_assoc();  
-    }
-        
-    } 
+session_start();
+if (isset($_GET['user']))
+{
+$user = $_GET['user'];
+$get_user = $mysqli->query("SELECT * FROM user WHERE username = '$user'");
+if ($get_user->num_rows == 1)
+{
+    $profile_data = $get_user->fetch_assoc();
+           
+}
+       
+} 
 ?>
 <!DOCTYPE html>
 <html>    

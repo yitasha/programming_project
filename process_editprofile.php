@@ -1,6 +1,6 @@
 <?php
 session_start();
-    if (isset($_POST['update_profile'])) 
+    if (isset($_POST['update_profile'])) 
 {
 	$user = $_GET['user'];
 	$firstname = $_POST['firstname'];
@@ -16,10 +16,10 @@ session_start();
                     address1 = '$address1', address2 = '$address2',
                       city = '$city', postcode = $postcode, state = '$state'
                       WHERE username = '$user'");
-	    if ($update_profile) {
-		   header("Location: viewprofile.php?user=$user");
-	    } else {
-		  echo $mysqli->error;
-	    }
+	    if ($update_profile) {
+		   header("Location: viewprofile.php?user=$user");
+	    } else {
+		  echo $mysqli->error;
+	    }
 	}
 ?>
