@@ -79,7 +79,7 @@ include "./navbar.php";
     </div>
 
     <button  onclick="window.history.go(-1); return false;" class="btn btn-primary">Go Back</button>
-    <button type="submit" name="submit" class="btn btn-primary">Sell</button>
+    <button type="submit" name="submit" class="btn btn-primary">Update</button>
 </form>
 	<?php include "./footer.php"; ?>
 </body>

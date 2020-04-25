@@ -98,7 +98,7 @@ include "./navbar.php";
 
   <div class="form-row" style="padding-left:10px;">
   <button  onclick="window.history.go(-1); return false;" class="btn btn-primary">Go Back</button>
-  <button type="submit" class="btn btn-primary">Sell</button>
+  <button type="submit" class="btn btn-primary">Update</button>
   </div>
   
 
