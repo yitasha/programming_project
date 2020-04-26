@@ -6,7 +6,8 @@ function navigate()
 	//what is the value of the selected option
 	var url = menu.value;
 	
-	//go there
+	//go there qweqwqweqwe
 	if(url != "")
 	location.href = url;
+
 }
