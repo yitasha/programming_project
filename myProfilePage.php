@@ -1,6 +1,7 @@
 <?php
 session_start(); 
-$page_title= "productListPage";
+
+$page_title= "User Profile";
 # [START use_cloud_storage_tools] So images cant be retrieved from bucket
 use google\appengine\api\cloud_storage\CloudStorageTools;
 # [END use_cloud_storage_tools]
@@ -28,8 +29,41 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     </ul>
 
     <div class='tab-content'>
+        
         <div id='Account' class='tab-pane fade in active'>
-            </div>
+        <?php
+
+        #Fetch user table
+        $userprofile = $db->prepare("select * from user where userid = '$userID'");
+        $userprofile->execute();
+        $userprofile->fetchAll(PDO::FETCH_ASSOC);
+         
+        while ($r = $userprofile->fetch())
+        {
+
+            print "
+        
+                <div class='row'>
+
+                    <h5>{$r['firstname']} {$r['lastname']}</h5>
+                    <h5>Phone: {$r['phone']}</h5>
+                    <h5>Email: {$r['email']}</h5>
+                    <h5>Address: {$r['address1']}</h5>
+                    <h5>Address2: {$r['address2']}</h5>
+                    <h5>Postcode: {$r['postcode']}</h5>
+                    <h5>State: {$r['state']}</h5>
+
+                    <button type='button' class='btn btn-primary deleteAccountButton' href='deleteuser.php'>Delete Account</button>
+                    <button type='button' class='btn btn-outline-secondary editProfileButton' href='updateuser.php'>Edit Profile</button>
+
+                </div>
+            
+            ";
+        
+        }
+        
+        ?>
+        </div>
         <div id='Products_Sold' class='tab-pane fade'>
             <table class="table">
             <thead>

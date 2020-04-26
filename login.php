@@ -22,7 +22,7 @@ include "./navbar.php";
 			<input type="text" id="username" name="username" value="" placeholder="Username" required><br>
 			<input type="password" id="pass" name="password" value="" placeholder="Password" required><br>
 			<div id="hyperlink">
-				<a href="index.php">forgot account?</a>
+				<a href="resetpassword.php">forgot account?</a>
 			</div>
 			<input type="submit" name="Login" value="login"/><br/>
 		</form> 
