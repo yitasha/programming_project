@@ -1,5 +1,14 @@
 <?php 
 session_start();
+    #Check if admin have logged in by detect SESSION variable
+    $admin = $_SESSION['adminName'];
+	if(!isset($admin))
+	{
+		print "<script type='text/javascript'>
+		alert('Admin you have not logged in!');
+		window.location.href = 'index.php';
+	    </script>";
+    }
 $page_title= "Admin Panel";
 
 include "./header.php"; 

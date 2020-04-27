@@ -54,8 +54,6 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 		alert('You have added an new Phone');
 		window.location.href = 'index.php';
 	    </script>";
-  
-    
     //echo "$phonename, $name, $imgname, $phonecond, $brand, $model, $phoneos, $phonemem, $phonestorage
     //, $phonecol, $phonescreen, $phonecam, $description, $price, $user_userid ";
 ?>

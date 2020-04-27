@@ -1,6 +1,15 @@
 <?php
-session_start(); 
-
+session_start();
+    #Check if username is active by detecting SESSION variable
+    $username = $_SESSION['username'];
+	if(!isset($username))
+	{
+		print "<script type='text/javascript'>
+		alert('You have not logged in!');
+		window.location.href = 'login.php';
+	    </script>";
+    }
+    
 $page_title= "User Profile";
 # [START use_cloud_storage_tools] So images cant be retrieved from bucket
 use google\appengine\api\cloud_storage\CloudStorageTools;
@@ -61,9 +70,10 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                 <h3>Postcode: $postcode</h3>
                 <h3>State: $state</h3>
                 <br>
-                <button type='button' href='deleteuser.php' class='btn btn-primary deleteButton'>Delete Account</button>
-                  <button type='button' href='updateuser.php' class='btn btn-outline-secondary editButton'>Edit Profile</button>";
+                <a class='btn btn-primary' href='test.php?userID=$userID&userName=$username' role='button'>Delete Account</a>
+                <a class='btn btn-info' href='updateUser.php?userID=$userID&userName=$username' role='button'>Edit Profile</a>";
         ?>
+                
         </div>
 
         <!-- Products listing area  -->

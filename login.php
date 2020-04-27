@@ -8,6 +8,7 @@ session_start();
 		window.location.href = 'index.php';
 	    </script>";
 	}
+	
 
 $page_title= "Login";
 

@@ -43,5 +43,4 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 			window.location.href = 'myProfilePage.php';
             </script>";
         }
-
 ?>

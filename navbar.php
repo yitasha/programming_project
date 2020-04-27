@@ -33,26 +33,31 @@ print"
 <?php
       print"
       <div class='sub-menu'>
-      <li class='dropdown'><a class='dropdown-toggle' class='navBarIcons' data-toggle='dropdown'><img src='imgs/accountRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>Account</span></a>
+        <li class='dropdown'><a class='dropdown-toggle' class='navBarIcons' data-toggle='dropdown'><img src='imgs/accountRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>Account</span></a>
             <ul class='dropdown-menu'>
                 <li><a href='login.php'>Login</a></li>
-                 <li><a href='register.php'>Register</a></li>"
+                <li><a href='register.php'>Register</a></li>"
 ?>
 <?php
-   if(isset($_SESSION['username']) && !empty($_SESSION['username']) )
-   {
-     $username = $_SESSION['username'];
-     echo "<li><a href='logout.php'>Logout</a></li>";
-   }
+    #If Session username/adminName is detected and not empty = show logout
+    if((isset($_SESSION['username']) && !empty($_SESSION['username'])) or (isset($_SESSION['adminName']) && !empty($_SESSION['adminName'])))
+    {
+      echo "<li><a href='logout.php'>Logout</a></li>";
+    }
 ?>
 
 <?php
-      print"               
-      
-                 <li><a href='adminLogin.php'>Admin</a></li>
-               </ul>
-               </div>
-           </li>
+    #If Session normal username is NOT detected and IS empty = show Admin login 
+    if(!isset($_SESSION['username']) && empty($_SESSION['username']) )
+    {
+      echo "<li><a href='adminLogin.php'>Admin</a></li>";
+    }
+  ?>
+<?php
+      print "
+              </ul>
+          </li>
+        </div>
            <div class='sub-menu'>
             <li><a href='#'><img src='imgs/favouriteRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>favourite</span></a></li>
           </div>
