@@ -48,6 +48,7 @@ print"
 
 <?php
       print"               
+      
                  <li><a href='adminLogin.php'>Admin</a></li>
                </ul>
                </div>
