@@ -58,7 +58,10 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                 <h3>Address 1: $address1</h3>
                 <h3>Address 2: $address2</h3>
                 <h3>Postcode: $postcode</h3>
-                <h3>State: $state</h3>";
+                <h3>State: $state</h3>
+                <br>
+                <button type='button' href='deleteuser.php' class='btn btn-primary deleteButton'>Delete Account</button>
+                  <button type='button' href='updateuser.php' class='btn btn-outline-secondary editButton'>Edit Profile</button>";
         ?>
         </div>
 
