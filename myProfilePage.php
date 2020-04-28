@@ -61,14 +61,45 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                 $username = $row['username'];
             }
             ### End of user data fetch ###
-            print "<h3>Username: $username </h3>
-                <h3>Full Name: $firstname $lastname</h3>
-                <h3>Phone: $phone</h3>
-                <h3>Email: $email</h3>
-                <h3>Address 1: $address1</h3>
-                <h3>Address 2: $address2</h3>
-                <h3>Postcode: $postcode</h3>
-                <h3>State: $state</h3>
+            print " <br><table class='table table-bordered' style='width:50%;'>
+            <thead>
+            </thead>
+            <tbody>
+            
+              <tr>
+                <th scope='row'>UserName</th>
+                <td>$username</td>
+              </tr>
+              <tr>
+                <th scope='row'>Full Name</th>
+                <td>$firstname $lastname</td>
+              </tr>
+              <tr>
+                <th scope='row'>Phone</th>
+                <td colspan='2'>$phone</td>
+              </tr>
+              <tr>
+                <th scope='row'>Email</th>
+                <td colspan='2'>$email</td>
+              </tr>
+              <tr>
+                <th scope='row'>Address 1</th>
+                <td colspan='2'>$address1</td>
+              </tr>
+              <tr>
+                <th scope='row'>Adress 2</th>
+                <td colspan='2'>$address2</td>
+              </tr>
+              <tr>
+                <th scope='row'>PostCode</th>
+                <td colspan='2'>$postcode</td>
+              </tr>
+              <tr>
+                <th scope='row'>State</th>
+                <td colspan='2'>$state</td>
+              </tr>
+            </tbody>
+          </table>
                 <br>
                 <a class='btn btn-primary' href='test.php?userID=$userID&userName=$username' role='button'>Delete Account</a>
                 <a class='btn btn-info' href='updateUser.php?userID=$userID&userName=$username' role='button'>Edit Profile</a>";
