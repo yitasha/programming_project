@@ -383,3 +383,54 @@ footer p{
     border-color: #F74A4A !important;
 }
 
+
+/*Email Form*/
+.emailForm{
+    width:70% !important;
+    margin: 0 auto;
+}
+
+.emailForm input[type=submit] {
+    background-color: #5cdb95;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30%;
+}
+
+.emailForm input[type=submit]:hover {
+    background-color: #2fb96d;
+}
+
+.emailForm input[type=text] {
+    background-color: white;
+    border: 1px solid;
+    color: #0d0d0d;
+    font-size: 16px;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #d6d6d6;
+    margin-left:0px;
+}
+
+.email_form_row{
+    margin:0 !important;
+}
+
+.emailColumn{
+    padding:0px !important;
+}
+
+.emailColumnTwo{
+    padding:0px !important;
+    width:47% !important;
+}
+
+.commentTextBox{
+    height:100px;
+}
+
+.subject{
+    width:100%;
+}
