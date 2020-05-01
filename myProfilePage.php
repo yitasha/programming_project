@@ -65,7 +65,10 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
             <thead>
             </thead>
             <tbody>
-            
+              <tr>
+                <th scope='row'>Profile Picture</th>
+                <td><img src='imgs/profilePic.png' alt='profilePic' style='width:100px; height:auto;'></td>
+              </tr>
               <tr>
                 <th scope='row'>UserName</th>
                 <td>$username</td>
