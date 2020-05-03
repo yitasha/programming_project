@@ -93,6 +93,7 @@ a{
 }
 
 #loginContainer {
+    min-height: 500px;
     text-align: center;
     max-width: 650px;
     min-width: 250px;
@@ -244,6 +245,7 @@ input[type=submit]:hover {
 .formContent{
     margin-left: 20%;
     margin-right: 20%;
+    padding-bottom: 40px;
 }
 
 input[type=number] {
@@ -313,19 +315,6 @@ a.fill-div {
     color: black !important;
 }
 
-
-/*Footer Section*/
-
-footer{
-	margin-top: 30%;
-	border-top:1px solid #F74A4A;
-    padding-top:20px;
-    text-align: center;
-}
-
-footer p{
-    color:black;
-}
 
 /*Ask form*/
 .ask_form{
@@ -433,4 +422,23 @@ footer p{
 
 .subject{
     width:100%;
+}
+
+
+/*Footer Section*/
+
+footer{
+    border-top: 1px solid #F74A4A;
+    padding-top: 20px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    text-align: center;
+}
+
+footer p{
+    color:black;
 }

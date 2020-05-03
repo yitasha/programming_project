@@ -55,26 +55,7 @@ include "./navbar.php";
 			}
 			?>
 		</div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-			<?php
-			$top2 = $db->prepare("select * from computer order by computerid desc limit 1,1");
-			$top2->execute();
-			$top2->setFetchMode(PDO::FETCH_ASSOC);
-			while ($r = $top2->fetch()) 
-			{
-			print "<a href='computerProduct.php?productID={$r['computerid']}&userID={$r['user_userid']}' class='fill-div'>
-			<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' alt='productOne'>
-				<div class='card-body'>
-					<h5 class='card-title'>{$r['pcname']}</h5>
-					<p class='card-text'>{$r['description']}</p>
-					<p class='card-text'>$ {$r['price']}</p>
-				</div>
-			</div>
-			</a>";
-			}
-			?>
-		</div>
+
 		<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
 			<?php
@@ -95,6 +76,28 @@ include "./navbar.php";
 			}
 			?>
 		</div>
+
+		<div class="col-sm-3">
+			<div class="card" style="width: 18rem;">
+			<?php
+			$top2 = $db->prepare("select * from computer order by computerid desc limit 1,1");
+			$top2->execute();
+			$top2->setFetchMode(PDO::FETCH_ASSOC);
+			while ($r = $top2->fetch()) 
+			{
+			print "<a href='computerProduct.php?productID={$r['computerid']}&userID={$r['user_userid']}' class='fill-div'>
+			<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' alt='productOne'>
+				<div class='card-body'>
+					<h5 class='card-title'>{$r['pcname']}</h5>
+					<p class='card-text'>{$r['description']}</p>
+					<p class='card-text'>$ {$r['price']}</p>
+				</div>
+			</div>
+			</a>";
+			}
+			?>
+		</div>
+		
 		<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
 			<?php
@@ -116,99 +119,61 @@ include "./navbar.php";
 			?>
 		</div>
 	</div>
-<!-- Recommended section -->
+	
+<!-- Select latest 4 computer uploads and publish here -->
 	<div class="row">
-	<h3>Recommended</h3>
-	<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/computerOne.jpg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/computerOne.jpg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/iphone.jpeg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/computerThree.jpeg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
-				</div>
-			</div>
-		</div>
+	<h3>Latest Computers</h3>
+		<?php
+			$computers = $db->prepare("select * from computer order by computerid desc limit 4");
+			$computers->execute();
+			$computers->setFetchMode(PDO::FETCH_ASSOC);
+			while ($r = $computers->fetch()) 
+			{
+				print "<div class='col-sm-3'>
+					<div class='card' style='width: 18rem;'>
+					<a href='computerProduct.php?productID={$r['computerid']}&userID={$r['user_userid']}' class='fill-div'>
+					<img class='card-img-top' src='https://storage.googleapis.com/computerimg/{$r['images']}' alt='productOne'>
+						<div class='card-body'>
+							<h5 class='card-title'>{$r['pcname']}</h5>
+							<p class='card-text'>{$r['description']}</p>
+							<p class='card-text'>$ {$r['price']}</p>
+						</div>
+					</div>
+					</a>
+				</div>";
+			}
+		?>
 	</div>
-
+<!-- Select latest 4 phones uploads and publish here  -->
 	<div class="row">
-	<h3>Accessories</h3>
-		<div class="col-sm-3">
-				<div class="card" style="width: 18rem;">
-				<img class="card-img-top" src="imgs/iphone.jpeg" style='width:18rem;height:auto' alt="productOne">
-					<div class="card-body">
-						<h5 class="card-title">Iphone XS</h5>
-						<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-						<p class="card-text">$1000</p>
+	<h3>Latest Phones</h3>
+		<?php
+			$phone = $db->prepare("select * from phone order by phoneid desc limit 4");
+			$phone->execute();
+			$phone->setFetchMode(PDO::FETCH_ASSOC);
+			while ($r = $phone->fetch()) 
+			{
+			print "<div class='col-sm-3'>
+				<div class='card' style='width: 18rem;'>
+				<a href='phoneProduct.php?productID={$r['phoneid']}&userID={$r['user_userid']}' class='fill-div'>
+				<img class='card-img-top' src='https://storage.googleapis.com/phoneimg/{$r['images']}' alt='productOne'>
+					<div class='card-body'>
+						<h5 class='card-title'>{$r['phonename']}</h5>
+						<p class='card-text'>{$r['description']}</p>
+						<p class='card-text'>$ {$r['price']}</p>
 					</div>
 				</div>
-			</div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/computerOne.jpg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/iphone.jpeg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
-			<img class="card-img-top" src="imgs/computerThree.jpeg" style='width:18rem;height:auto' alt="productOne">
-				<div class="card-body">
-					<h5 class="card-title">Iphone XS</h5>
-					<p class="card-text">Selling Iphone XS, in brand new condition. Phone works as intended.</p>
-					<p class="card-text">$1000</p>
-				</div>
-			</div>
-		</div>
+				</a>
+			</div>";
+			}
+		?>
 	</div>
 
+<!-- Select latest 4 Accessories uploads and publish here  -->
 	<div class="row">
-	<h3>Laptops</h3>
+	<h3>Accessories</h3>
 	<div class="col-sm-3">
-			<div class="card" style="width: 18rem;">
+		<div class="card" style="width: 18rem;">
 			<img class="card-img-top" src="imgs/iphone.jpeg" style='width:18rem;height:auto' alt="productOne">
 				<div class="card-body">
 					<h5 class="card-title">Iphone XS</h5>

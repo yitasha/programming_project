@@ -46,7 +46,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
           print "
             <div class='col-md-6'>
                 <h4 style='margin-bottom:50px;'>{$r['pcname']}   -   $ {$r['price']}</h4>
-                <img src='https://storage.googleapis.com/computerimg/{$r['images']}' class='responsive' style='width:auto;height:200px' alt='product pic'>
+                <img src='https://storage.googleapis.com/computerimg/{$r['images']}' class='responsive' style='width:auto;max-height:400px' alt='product pic'>
             </div>
 
             <div class='col-md-6 sellerProfile d-flex justify-content-center'>

@@ -54,7 +54,7 @@ include "./navbar.php";
             $username = $row['username'];
             $password = $row['password'];
         }
-
+        
         print "<input type='text' id='username' name='username' value='User Name: $username Can Not Be Changed ' placeholder='Username' readonly><br>
 		<input type='password' id='pass' name='password' value='$password' placeholder='Password' minlength='6' required><br>
 		<input type='text' name='firstname' value='$firstname' placeholder='first name'required/><br>
