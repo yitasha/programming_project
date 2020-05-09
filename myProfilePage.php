@@ -104,7 +104,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
             </tbody>
           </table>
                 <br>
-                <a class='btn btn-primary' href='test.php?userID=$userID&userName=$username' role='button'>Delete Account</a>
+                <a class='btn btn-primary' href='process_deleteUser.php?userID=$userID&userName=$username' role='button'>Delete Account</a>
                 <a class='btn btn-info' href='updateUser.php?userID=$userID&userName=$username' role='button'>Edit Profile</a>";
         ?>
                 
