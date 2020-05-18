@@ -11,7 +11,7 @@ print"
 
         <!-- left side navbar -->
         <ul class='nav navbar-nav'>
-        <li><a href='#'>Buy</a></li>
+        <li><a href='buyPage.php'>Buy</a></li>
         <li><a href='askSell.php'>Sell</a></li>
         <li><a href='#'>Trade</a></li>
         </ul>

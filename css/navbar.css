@@ -123,7 +123,7 @@ input[type=text] {
     padding: 10px 10px;
     text-decoration: none;
     font-size: 16px;
-    margin: 5px;
+    /* margin: 5px; */
     width: 95%;
     border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
@@ -441,4 +441,15 @@ footer{
 
 footer p{
     color:black;
+}
+
+/* search bar css */
+.container{
+    margin-top:5%;
+  }
+  /* Style to create scroll bar in dropdown */ 
+.scrollable-dropdown{
+    height: auto;
+    max-height:320px;  /* Increase / Decrease value as per your need */
+    overflow-x: hidden;
 }
