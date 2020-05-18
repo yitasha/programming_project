@@ -1,17 +1,17 @@
 <?php
 session_start(); 
-$page_title= "Home";
+$page_title= "Buy";
 # [START use_cloud_storage_tools] So images cant be retrieved from bucket
 use google\appengine\api\cloud_storage\CloudStorageTools;
 # [END use_cloud_storage_tools]
 
 	// Instantiate your DB using the database host, port, name, username, and password
-   # $dsn = getenv('MYSQL_DSN');
-   # $user = getenv('MYSQL_USER');
-   # $pw = getenv('MYSQL_PASSWORD');
+  $dsn = getenv('MYSQL_DSN');
+  $user = getenv('MYSQL_USER');
+  $pw = getenv('MYSQL_PASSWORD');
 
-    //DB connection
-   # $db = new PDO($dsn, $user, $pw);
+  //DB connection
+  $db = new PDO($dsn, $user, $pw);
 
 include "./header.php"; 
 include "./navbar.php";

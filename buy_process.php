@@ -6,4 +6,4 @@ split word search each word with a counter
 
 <?php
 
->
+?>

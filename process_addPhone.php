@@ -38,7 +38,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 
     if($statement->execute())
     {
-        sleep(1); //Give it buffer 1 second
+        //sleep(1); //Give it buffer 1 second
         //Move uploaded image to google bucket: phone
         move_uploaded_file($location, 'gs://phoneimg/'. $imgname); 
     }

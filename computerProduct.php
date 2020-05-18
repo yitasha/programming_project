@@ -35,6 +35,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
         $lastname = $row['lastname'];
         $phone = $row['phone'];
         $email = $row['email'];
+        $profilepic = $row['profilepic'];
+        $city = $row['city'];
       }
 
 		  #Fetch computer table
@@ -50,10 +52,12 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
             </div>
 
             <div class='col-md-6 sellerProfile d-flex justify-content-center'>
-                  <img src='imgs/sellerOne.jpg' style='width:20rem;height:auto' alt='user profile pic'>
+                  <img src='https://storage.googleapis.com/profileimg/$profilepic' style='width:20rem;height:auto' alt='user profile pic'>
                   <h4>$firstname $lastname</h4>
                   <h5>Phone: $phone</h5>
-                  <h5>Email: $email</h5></br>
+                  <h5>Email: $email</h5>
+                  <h5>Location: $city</h5>
+                  </br>
                   <button type='button' class='btn btn-primary productPageButtonSell'>Buy</button>
                   <a href='contactUser.php'><button class='btn btn-outline-secondary productPageButton'>Contact User</button></a>
 

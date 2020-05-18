@@ -59,6 +59,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                 $postcode = $row['postcode'];
                 $state = $row['state'];
                 $username = $row['username'];
+                $profilepic = $row['profilepic'];
             }
             ### End of user data fetch ###
             print " <br><table class='table table-bordered' style='width:50%;'>
@@ -67,7 +68,20 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
             <tbody>
               <tr>
                 <th scope='row'>Profile Picture</th>
-                <td><img src='imgs/profilePic.png' alt='profilePic' style='width:100px; height:auto;'></td>
+                <form action='process_profileimg.php' method='post' enctype='multipart/form-data'>
+                  <td><img class='myAvatar' type='image' src='https://storage.googleapis.com/profileimg/$profilepic' style='height:200px'>
+                  <br>
+                  <input type='file' name='image' id='newAvatar' style='display:none;' class='form-control-file'>
+                  <div style='padding-top: 20px'>
+                  <button type='submit' class='btn btn-primary' style='width:200px'>Update Profile Picture</button>
+                  </div>
+                  </form>
+                </td>
+                  <script>
+                  $('.myAvatar').click(function() {
+                      $('#newAvatar').trigger('click');
+                  });
+                  </script>
               </tr>
               <tr>
                 <th scope='row'>UserName</th>

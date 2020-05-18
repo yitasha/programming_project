@@ -11,7 +11,9 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     $pw = getenv('MYSQL_PASSWORD');
 
     //DB connection
-    $db = new PDO($dsn, $user, $pw);
+	$db = new PDO($dsn, $user, $pw);
+	$userid = $_SESSION['userid'];
+	$city = $_SESSION['city'];
 
 include "./header.php"; 
 include "./navbar.php";
@@ -34,12 +36,24 @@ include "./navbar.php";
 <div class="container">
 <!-- Top pics section -->
 	<div class="row">
-	<h3>Top Picks</h3>
+	<h3>Recommended</h3>
 	<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
 			<?php
-			$top1 = $db->prepare("select * from computer order by computerid desc limit 0,1");
+			if(isset($userid))
+			{
+				$top1 = $db->prepare("SELECT * FROM computer WHERE user_userid IN (SELECT userid FROM user WHERE city = (SELECT city FROM user WHERE userid = '$userid')) ORDER BY computerid DESC LIMIT 0,1");
+			}
+			else
+			{
+				$top1 = $db->prepare("SELECT * FROM computer ORDER BY computerid DESC LIMIT 0,1");
+			}
+			
 			$top1->execute();
+			if($top1->rowCount() <= 0)
+			{
+				$top1 = $db->prepare("SELECT * FROM computer ORDER BY computerid DESC LIMIT 0,1");
+			}
 			$top1->setFetchMode(PDO::FETCH_ASSOC);
 			while ($r = $top1->fetch()) 
 			{
@@ -59,8 +73,20 @@ include "./navbar.php";
 		<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
 			<?php
-			$top3 = $db->prepare("select * from phone order by phoneid desc limit 0,1");
+			if(isset($userid))
+			{
+				$top3 = $db->prepare("SELECT * FROM phone WHERE user_userid IN (SELECT userid FROM user WHERE city = (SELECT city FROM user WHERE userid = '$userid')) ORDER BY phoneid DESC LIMIT 0,1");
+			}
+			else
+			{
+				$top3 = $db->prepare("SELECT * FROM phone ORDER BY phoneid DESC LIMIT 0,1");
+			}
+
 			$top3->execute();
+			if($top3->rowCount() <= 0)
+			{
+				$top3 = $db->prepare("SELECT * FROM phone ORDER BY phoneid DESC LIMIT 0,1");
+			}
 			$top3->setFetchMode(PDO::FETCH_ASSOC);
 			while ($r = $top3->fetch()) 
 			{
@@ -80,8 +106,21 @@ include "./navbar.php";
 		<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
 			<?php
-			$top2 = $db->prepare("select * from computer order by computerid desc limit 1,1");
+			if(isset($userid))
+			{
+				$top2 = $db->prepare("SELECT * FROM computer WHERE user_userid IN (SELECT userid FROM user WHERE city = (SELECT city FROM user WHERE userid = '$userid')) ORDER BY computerid DESC LIMIT 1,1");
+			}
+			else
+			{
+				$top2 = $db->prepare("SELECT * FROM computer ORDER BY computerid DESC LIMIT 1,1");
+			}
+
 			$top2->execute();
+			if($top2->rowCount() <= 0)
+			{
+				$top2 = $db->prepare("SELECT * FROM computer ORDER BY computerid DESC LIMIT 1,1");
+			}
+
 			$top2->setFetchMode(PDO::FETCH_ASSOC);
 			while ($r = $top2->fetch()) 
 			{
@@ -101,8 +140,20 @@ include "./navbar.php";
 		<div class="col-sm-3">
 			<div class="card" style="width: 18rem;">
 			<?php
-			$top4 = $db->prepare("select * from phone order by phoneid desc limit 1,1");
+			if(isset($userid))
+			{
+				$top4 = $db->prepare("SELECT * FROM phone WHERE user_userid IN (SELECT userid FROM user WHERE city = (SELECT city FROM user WHERE userid = '$userid')) ORDER BY phoneid DESC LIMIT 1,1");
+			}
+			else
+			{
+				$top4 = $db->prepare("SELECT * FROM phone ORDER BY phoneid DESC LIMIT 1,1");
+			}
+
 			$top4->execute();
+			if($top4->rowCount() <= 0)
+			{
+				$top4 = $db->prepare("SELECT * FROM phone ORDER BY phoneid DESC LIMIT 1,1");
+			}
 			$top4->setFetchMode(PDO::FETCH_ASSOC);
 			while ($r = $top4->fetch()) 
 			{

@@ -31,6 +31,7 @@ session_start();
 				$_SESSION['userid'] = $r['userid'];
 				$_SESSION['firstname'] = $r['firstname'];
 				$_SESSION['lastname'] = $r['lastname'];
+				$_SESSION['city'] = $r['city'];
 			}
 
 			print "<script type='text/javascript'>
