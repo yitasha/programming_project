@@ -49,6 +49,7 @@ include "./navbar.php";
                     <th scope="row">Email</th>
                     <th scope="row">Address 1</th>
                     <th scope="row">Address 2</th>
+                    <th scope="row">City</th>
                 </tr>
             </thead>
 
@@ -70,6 +71,7 @@ include "./navbar.php";
                     $address2 = $row['address2'];
                     $postcode = $row['postcode'];
                     $state = $row['state'];
+                    $city = $row['city'];
                     $username = $row['username'];
 
                     ### End of user data fetch ###
@@ -82,6 +84,7 @@ include "./navbar.php";
                     <td>$email</td>
                     <td>$address1</td>
                     <td>$address2</td>
+                    <td>$city</td>
                     <td><a href='process_deleteUser.php?userID=$userid&userName=$username'>Delete</a></td>
                     </tr>";
                 }
@@ -142,7 +145,7 @@ include "./navbar.php";
                         <td>$username</td>
                         <td>$firstname $lastname</td>
                         <td>$phone</td>
-                        <td><a href=''>Delete</a></td>
+                        <td><a href='process_deleteComputer.php?userID=$userid&prodID=$computerid'>Delete</a></td>
                         </tr>";
                     }
                     ?>
@@ -202,7 +205,7 @@ include "./navbar.php";
                         <td>$username</td>
                         <td>$firstname $lastname</td>
                         <td>$phone</td>
-                        <td><a href=''>Delete</a></td>
+                        <td><a href='process_deletePhone.php?userID=$userid&prodID=$phoneid'>Delete</a></td>
                         </tr>";
                     }
                     ?>
