@@ -43,6 +43,30 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
       $statement = $db->prepare("select * from phone where phoneid = '$productID'");
       $statement->execute();
       $statement->setFetchMode(PDO::FETCH_ASSOC);
+      $cartArray = array(
+        $phone=>array(
+          'phonename'=>$phonename,
+          'phoneid'=>$productID,
+          'price'=>$price,
+          'quantity'=>1)
+         );
+         if(empty($_SESSION["shopping_cart"])) {
+          $_SESSION["shopping_cart"] = $cartArray;
+          $status = "<div class='box'>Product is added to your cart!</div>";
+      }else{
+          $array_keys = array_keys($_SESSION["shopping_cart"]);
+          if(in_array($productID,$array_keys)) {
+       $status = "<div class='box' style='color:red;'>
+       Product is already added to your cart!</div>"; 
+          } else {
+          $_SESSION["shopping_cart"] = array_merge(
+          $_SESSION["shopping_cart"],
+          $cartArray
+          );
+          $status = "<div class='box'>Product is added to your cart!</div>";
+       }
+       
+       }
       while ($r = $statement->fetch())
       {
           print "
@@ -60,6 +84,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                   <h5>Location: $city</h5></br>
                   <button type='submit' name='add_to_cart' class='btn btn-primary productPageButtonSell'>Buy</button>
                   <a href='contactUser.php'><button class='btn btn-outline-secondary productPageButton'>Contact User</button></a>
+
+                  <?php echo $status; ?>
             </div>
             </div>
 
