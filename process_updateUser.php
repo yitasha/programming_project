@@ -22,11 +22,12 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 		$address2 = $_POST['address2'];
 		$postcode = $_POST['postcode'];
 		$state = $_POST['state'];
+		$city = $_POST['city'];
 		$userid = $_SESSION['userid'];
 
 
         //updating
-		$statement = $db->prepare("UPDATE user SET firstname='$firstname', lastname='$lastname',phone='$phone', email='$email', address1='$address1', address2='$address2', postcode='$postcode', state='$state',password='$password' where userid='$userid'");
+		$statement = $db->prepare("UPDATE user SET firstname='$firstname', lastname='$lastname',phone='$phone', email='$email', address1='$address1', address2='$address2', postcode='$postcode', state='$state', city='$city', password='$password' where userid='$userid'");
 		
 		if($statement->execute())
 		{

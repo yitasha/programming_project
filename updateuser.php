@@ -51,6 +51,7 @@ include "./navbar.php";
             $address2 = $row['address2'];
             $postcode = $row['postcode'];
             $state = $row['state'];
+            $city = $row['city'];
             $username = $row['username'];
             $password = $row['password'];
         }
@@ -67,7 +68,7 @@ include "./navbar.php";
         </div>
             <div id='smallContent' class='row'>
                 <div class='col-sm-4'>
-                    <input type='text' name='city' value='Null' placeholder='city' required/>
+                    <input type='text' name='city' value='$city' placeholder='city' required/>
                 </div>
                 <div class='col-sm-4'>
                     <input type='text' maxlength='4' value='$postcode' name='postcode' placeholder='postcode' required/>

@@ -58,6 +58,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                 $address2 = $row['address2'];
                 $postcode = $row['postcode'];
                 $state = $row['state'];
+                $city = $row['city'];
                 $username = $row['username'];
                 $profilepic = $row['profilepic'];
             }
@@ -104,8 +105,12 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                 <td colspan='2'>$address1</td>
               </tr>
               <tr>
-                <th scope='row'>Adress 2</th>
+                <th scope='row'>Address 2</th>
                 <td colspan='2'>$address2</td>
+              </tr>
+              <tr>
+                <th scope='row'>City</th>
+                <td colspan='2'>$city</td>
               </tr>
               <tr>
                 <th scope='row'>PostCode</th>
@@ -119,7 +124,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
           </table>
                 <br>
                 <a class='btn btn-primary' href='process_deleteUser.php?userID=$userID&userName=$username' role='button'>Delete Account</a>
-                <a class='btn btn-info' href='updateUser.php?userID=$userID&userName=$username' role='button'>Edit Profile</a>";
+                <a class='btn btn-info' href='updateuser.php?userID=$userID&userName=$username' role='button'>Edit Profile</a>";
         ?>
                 
         </div>

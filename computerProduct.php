@@ -58,7 +58,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                   <h5>Email: $email</h5>
                   <h5>Location: $city</h5>
                   </br>
-                  <button type='button' class='btn btn-primary productPageButtonSell'>Buy</button>
+                  <button type='submit' name='add_to_cart' class='btn btn-primary productPageButtonSell'>Buy</button>
                   <a href='contactUser.php'><button class='btn btn-outline-secondary productPageButton'>Contact User</button></a>
 
             </div>
