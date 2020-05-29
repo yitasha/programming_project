@@ -24,12 +24,6 @@ include "./navbar.php";
 <div class="headingContainer">
 	<h1>Rocket Market</h1>
 	<h5>buy, sell, and trade electronics<h5>
-	<form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-	<i class="fas fa-search" aria-hidden="true"></i>
-	<input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="I am looking for"
-		aria-label="Search">
-		<button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
-	</form>
 </div>
 
 

@@ -4,7 +4,7 @@ $page_title= "Buy";
 # [START use_cloud_storage_tools] So images cant be retrieved from bucket
 use google\appengine\api\cloud_storage\CloudStorageTools;
 # [END use_cloud_storage_tools]
-
+  
 	// Instantiate your DB using the database host, port, name, username, and password
   $dsn = getenv('MYSQL_DSN');
   $user = getenv('MYSQL_USER');
@@ -12,6 +12,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 
   //DB connection
   $db = new PDO($dsn, $user, $pw);
+  $userid = $_SESSION['userid'];
+  $city = $_SESSION['city'];
 
   if(!isset($_SESSION['userid']))
 	{
@@ -24,52 +26,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 include "./header.php"; 
 include "./navbar.php";
 ?>
-<script>
-    $(document).ready(function(e){
-	      $('.search-panel .dropdown-menu').find('a').click(function(e) {
-				e.preventDefault();
-				var param = $(this).attr("href").replace("#","");
-				var concept = $(this).text();
-				$('.search-panel span#search_concept').text(concept);
-				$('.input-group #search_param').val(param);
-		   	});
-	      });
-var a = document.getElementByTagName('a').item(0);
-$(a).on('keyup', function(evt){
-  console.log(evt);
-  if(evt.keycode === 13){
-    
-    alert('search?');
-  } 
-}); 
-  </script>
 
-
-<!-- Search bar -->
-<!-- <div class="container">
-  <div class="row">    
-   <div class="col-xs-8 col-xs-offset-2">
-   <form action="buy_process.php" method="post">
-    <div class="input-group">
-     <div class="input-group-btn search-panel">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        <span id="search_concept">Select Category</span> <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu scrollable-dropdown" role="menu">
-        <li><a href="#">Phones </a></li>
-        <li><a href="#">Computer</a></li>
-      </ul>
-     </div>
-        <input type="hidden" name="search_param" value="all" id="search_param">
-        <input type="text" class="form-control" name="search_item" id="search" placeholder="Item i am looking for">
-        <span class="input-group-btn"><button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-search"></span></button></span>
-    </form>
-    </div>
-   </div>
-  </div>
-</div> -->
-
-<form method="post">
+<!-- <form method="post">
 Search: <input type="text" name="search_item"><br>
 <select id="category" name="category">
     <option value="" selected disabled hidden>Choose Category</option>
@@ -77,7 +35,27 @@ Search: <input type="text" name="search_item"><br>
     <option value="computer">computer</option>
   </select>
 <input type="submit" name="submit">
-</form>
+</form> -->
+
+<div class="row">
+<form method ="post">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="input-group">
+      <span class="input-group-addon">
+      <select id="category" name="category">
+      <option value="" selected disabled hidden>Choose Category</option>
+      <option value="phone">phone</option>
+      <option value="computer">computer</option>
+    </select>
+  </span>
+      <input id = search type="text" class="form-control" name="search_item" placeholder="Search for an item">
+      <span class="input-group-addon"><input id="buy_button"type="submit" name="submit"></span>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  </form>
+</div>
 
 <?php
   if(isset($_POST['submit']))
@@ -120,9 +98,30 @@ Search: <input type="text" name="search_item"><br>
         }
 
         arsort($array);
+        $phone_array = array();
+        foreach($array as $key => $value){
+          $get_phone = $db->prepare("select * from phone where phoneid = $key");
+          $get_phone->execute();
+          $get_phone->setFetchMode(PDO::FETCH_ASSOC);
+          while ($r = $get_phone->fetch()){
+            $seller_id = $r['user_userid'];
+            $get_seller_id_city = $db->prepare("select * from user where userid = $seller_id");
+            $get_seller_id_city->execute();
+            $get_seller_id_city->setFetchMode(PDO::FETCH_ASSOC);
+            while($d = $get_seller_id_city->fetch()){
+              if(strcasecmp($city,$d['city']) == 0){
+                if(strcasecmp($userid,$seller_id) != 0)
+                {
+                  $phone_array[$key] = $key;
+                  break;
+                } 
+              }
+            }
+          }   
+        }
           print("<table class='table'>
           <tbody>");
-          foreach($array as $key => $value){
+          foreach($phone_array as $key => $value){
             $phone = $db->prepare("select * from phone where phoneid = $key");
             $phone->execute();
             $phone->setFetchMode(PDO::FETCH_ASSOC);
@@ -157,10 +156,31 @@ Search: <input type="text" name="search_item"><br>
             }
         }
         arsort($array);
+        $computer_array = array();
+        foreach($array as $key => $value){
+          $get_computer = $db->prepare("select * from computer where computerid = $key");
+          $get_computer->execute();
+          $get_computer->setFetchMode(PDO::FETCH_ASSOC);
+          while ($r = $get_computer->fetch()){
+            $seller_id = $r['user_userid'];
+            $get_seller_id_city = $db->prepare("select * from user where userid = $seller_id");
+            $get_seller_id_city->execute();
+            $get_seller_id_city->setFetchMode(PDO::FETCH_ASSOC);
+            while($d = $get_seller_id_city->fetch()){
+              if(strcasecmp($city,$d['city']) == 0){
+                if(strcasecmp($userid,$seller_id) != 0)
+                {
+                  $computer_array[$key] = $key;
+                  break;
+                } 
+              }
+            }
+          }   
+        }
 
         print("<table class='table'>
         <tbody>");
-        foreach($array as $key => $value){
+        foreach($computer_array as $key => $value){
           $comp = $db->prepare("select * from computer where computerid = $key");
           $comp->execute();
           $comp->setFetchMode(PDO::FETCH_ASSOC);

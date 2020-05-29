@@ -353,7 +353,6 @@ a.fill-div {
     border-width: 1px !important;
 }
 
-
 /*Product Page*/
 .sellerProfile{
     margin-top:6%;
@@ -443,7 +442,6 @@ footer p{
     color:black;
 }
 
-<<<<<<< HEAD
 /* search bar css */
 .container{
     margin-top:5%;
@@ -453,41 +451,31 @@ footer p{
     height: auto;
     max-height:320px;  /* Increase / Decrease value as per your need */
     overflow-x: hidden;
-=======
-/*Ask form*/
-.ask_form{
-    text-align: center !important;
-    margin-left: 20% !important;
-    margin-right: 20% !important;
 }
 
-[type=radio] { 
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-  
-[type=radio] + img {
-    cursor: pointer;
-}
-  
-[type=radio]:checked + img {
-    outline: 2px solid #F74A4A;
+/* search bar for buy page */
+.input-group-addon {
+    padding: 0!important;  
 }
 
-.askPrductFont{
-    color:white;
+select {
+    background: transparent;
+    border: none;
+    padding: 6px 12px;
+    color:black !important;
 }
 
+#buy_button {
+    padding: 6px 12px !important;
+    background: transparent !important;
+    border: none !important;
+    color:black;
+  }
 
-.btn-group-lg>.btn, .btn-lg {
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.3333333;
-    border-radius: 9px;
-    border: solid !important;
-    color: #F74A4A;
-    border-width: 1px !important;
->>>>>>> 4fd035ee2ec0cfe63da0a198459b47ac366118c0
+#search{
+    padding: 6px 12px !important;
+    height:50px;
+    border-radius: 0px 0px 0px 0px !important;
+    border-top-color:grey !important;
+    border-bottom-color:grey !important;
 }
