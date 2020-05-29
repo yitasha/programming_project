@@ -15,6 +15,15 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 	$userid = $_SESSION['userid'];
 	$city = $_SESSION['city'];
 
+	#Start shopping cart session array if not created
+	if(!isset($_SESSION['compcart'])){
+		$_SESSION['compcart'] = array();
+	}
+	if(!isset($_SESSION['phonecart'])){
+		$_SESSION['phonecart'] = array();
+	}
+	
+
 include "./header.php"; 
 include "./navbar.php";
 ?>

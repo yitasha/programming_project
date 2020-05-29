@@ -43,34 +43,45 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
       $statement = $db->prepare("select * from computer where computerid = '$productID'");
       $statement->execute();
       $statement->setFetchMode(PDO::FETCH_ASSOC);
-      $cartArray = array(
-      $computer=>array(
-        'pcname'=>$pcname,
-        'computerid'=>$productID,
-        'price'=>$price,
-        'quantity'=>1)
-       );
-       if(empty($_SESSION["shopping_cart"])) {
-        $_SESSION["shopping_cart"] = $cartArray;
-        $status = "<div class='box'>Product is added to your cart!</div>";
-    }else{
-        $array_keys = array_keys($_SESSION["shopping_cart"]);
-        if(in_array($productID,$array_keys)) {
-     $status = "<div class='box' style='color:red;'>
-     Product is already added to your cart!</div>"; 
-        } else {
-        $_SESSION["shopping_cart"] = array_merge(
-        $_SESSION["shopping_cart"],
-        $cartArray
-        );
-        $status = "<div class='box'>Product is added to your cart!</div>";
-     }
+
+    //   $cartArray = array(
+    //   $computer=>array(
+    //     'pcname'=>$pcname,
+    //     'computerid'=>$productID,
+    //     'price'=>$price,
+    //     'quantity'=>1)
+    //    );
+    //    if(empty($_SESSION["shopping_cart"])) {
+    //     $_SESSION["shopping_cart"] = $cartArray;
+    //     $status = "<div class='box'>Product is added to your cart!</div>";
+    // }else{
+    //     $array_keys = array_keys($_SESSION["shopping_cart"]);
+    //     if(in_array($productID,$array_keys)) {
+    //  $status = "<div class='box' style='color:red;'>
+    //  Product is already added to your cart!</div>"; 
+    //     } else {
+    //     $_SESSION["shopping_cart"] = array_merge(
+    //     $_SESSION["shopping_cart"],
+    //     $cartArray
+    //     );
+    //     $status = "<div class='box'>Product is added to your cart!</div>";
+    //  }
      
-     }
-    
-    
+    //  }   
+
       while ($r = $statement->fetch())
       {
+        if(isset($_POST['add'])) #Check if this item has been added to cart
+        {
+          if(in_array($r['computerid'], $_SESSION['compcart'])){
+            echo "<h4 style='color:red'>Item is already in cart!</h4>";
+          }
+          else{
+            array_push($_SESSION['compcart'], $r['computerid']);
+            echo "<h4 style='color:red'>This item have been added successfully!</h4>";
+          }
+        }
+
           print "
             <div class='col-md-6'>
                 <h4 style='margin-bottom:50px;'>{$r['pcname']}   -   $ {$r['price']}</h4>
@@ -84,10 +95,11 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                   <h5>Email: $email</h5>
                   <h5>Location: $city</h5>
                   </br>
-                  <button type='submit' class='btn btn-primary productPageButtonSell'>Buy</button>
+                  <form method='POST'>
+                    <button type='submit' class='btn btn-primary' name='add' >Add to Cart</button>
+                  </form>
                   <a href='contactUser.php'><button class='btn btn-outline-secondary productPageButton'>Contact User</button></a>
-            
-                  
+
                   <?php echo $status; ?>
                   </div>
                   </div>
