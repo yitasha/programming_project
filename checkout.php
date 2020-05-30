@@ -10,7 +10,7 @@ session_start();
 	    </script>";
     }
     
-$page_title= "Shopping Cart V2";
+$page_title= "User Profile";
 # [START use_cloud_storage_tools] So images cant be retrieved from bucket
 use google\appengine\api\cloud_storage\CloudStorageTools;
 # [END use_cloud_storage_tools]
@@ -28,7 +28,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 ?>
 <div class="container">
     <div class="row">
-    <h2>My shopping cart</h2>
+    <h2>Cart</h2>
      <!-- Cart Items listing area  -->
      <div id='cart'>
             <table class="table">
@@ -69,7 +69,57 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     </div>
     </div>
 </div>
-<a href='checkout.php'><button class='btn btn-outline-secondary checkoutButton'>Proceed to Checkout</button></a>
+<?php
+    $userID = $_SESSION['userid']; #userID from SESSION stored during Login
+#Fetch user table
+    $userdata = $db->prepare("select * from user where userid = '$userID'");
+    $userdata->execute();
+    $rows = $userdata->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($rows as $row)
+            {
+                $firstname = $row['firstname'];
+                $lastname = $row['lastname'];
+                $address1 = $row['address1'];
+                $address2 = $row['address2'];
+                $postcode = $row['postcode'];
+                $state = $row['state'];
+                $city = $row['city'];
+            }
+
+            print "
+            
+            <h3>Shipping Address</h3>
+            <br>
+            <p>$firstname $lastname,</p>
+            <p>$address1,</p>
+            <p>$address2,</p>
+            <p>$city,</p>
+            <p>$state,</p>
+            <p>$postcode</p>
+            
+            "
+?>
+    <div class="checkoutContainer">
+            <h3>Payment</h3>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <form action="process_checkout.php" method="post">
+            <label for="nameoncard">Name on Card</label>
+            <input type="text" id="nameoncard" name="nameoncard" required>
+            <label for="cardno">Credit card number</label>
+            <input type="text" id="cardno" name="cardno" required>
+            <label for="expirydate">Exp Month</label>
+            <input type="text" id="expirydate" name="expirydate" placeholder="MM/YY" required>
+            <br>
+            <input type="submit" value="Place Order" class="btn">
+            </form>
+
+
 <?php include "./footer.php"?>
 </body>
 </html>

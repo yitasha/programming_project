@@ -44,31 +44,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
       $statement->execute();
       $statement->setFetchMode(PDO::FETCH_ASSOC);
 
-    //   $cartArray = array(
-    //   $computer=>array(
-    //     'pcname'=>$pcname,
-    //     'computerid'=>$productID,
-    //     'price'=>$price,
-    //     'quantity'=>1)
-    //    );
-    //    if(empty($_SESSION["shopping_cart"])) {
-    //     $_SESSION["shopping_cart"] = $cartArray;
-    //     $status = "<div class='box'>Product is added to your cart!</div>";
-    // }else{
-    //     $array_keys = array_keys($_SESSION["shopping_cart"]);
-    //     if(in_array($productID,$array_keys)) {
-    //  $status = "<div class='box' style='color:red;'>
-    //  Product is already added to your cart!</div>"; 
-    //     } else {
-    //     $_SESSION["shopping_cart"] = array_merge(
-    //     $_SESSION["shopping_cart"],
-    //     $cartArray
-    //     );
-    //     $status = "<div class='box'>Product is added to your cart!</div>";
-    //  }
-     
-    //  }   
-
+    
       while ($r = $statement->fetch())
       {
         if(isset($_POST['add'])) #Check if this item has been added to cart
