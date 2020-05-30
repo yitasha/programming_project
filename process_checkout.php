@@ -12,27 +12,27 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     //DB connection
     $db = new PDO($dsn, $user, $pw);
     #insert values to payment
-    $user_userid = $_SESSION['userid'];
     $nameoncard = $_POST['nameoncard'];
-    $cardno = $_POST_['cardno'];
+    $cardno = $_POST['cardno'];
     $expirydate = $_POST['expirydate'];
     $cvv = $_POST['cvv'];
 
-    $statement = $db->prepare("INSERT INTO payment (paymentid, nameoncard, cardno, expirydate, cvv, user_userid)
-    VALUES (null,'$nameoncard','$cardno','$expirydate','$cvv','$user_userid')");
+    $statement = $db->prepare("INSERT INTO payment (paymentid, nameoncard, cardno, expirydate, cvv)
+    VALUES (null,'$nameoncard','$cardno','$expirydate','$cvv')");
 
-if($statement->execute())
-{
-    print "<script type='text/javascript'>
-    alert('Purchase complete! Confirmation order details and tracking details will send to your email shortly. Thank you for purchasing at Rocket Market!');
-    window.location.href = 'index.php';
-    </script>";    
-}
-else
-{
+    if($statement->execute())
+    {
+        print "<script type='text/javascript'>
+        alert('Purchase complete! Confirmation order details and tracking details will send to your email shortly. Thank you for purchasing at Rocket Market!');
+        window.location.href = 'index.php';
+        </script>";    
+    }
+    else
+    {
     print "<script type='text/javascript'>
     alert('Payment failed! Please check your card and try again.');
     window.location.href = 'checkout.php';
     </script>";
-}
+    }
+
 ?>

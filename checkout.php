@@ -10,7 +10,7 @@ session_start();
 	    </script>";
     }
     
-$page_title= "User Profile";
+$page_title= "Checkout";
 # [START use_cloud_storage_tools] So images cant be retrieved from bucket
 use google\appengine\api\cloud_storage\CloudStorageTools;
 # [END use_cloud_storage_tools]
@@ -81,26 +81,28 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                 $firstname = $row['firstname'];
                 $lastname = $row['lastname'];
                 $address1 = $row['address1'];
-                $address2 = $row['address2'];
                 $postcode = $row['postcode'];
                 $state = $row['state'];
                 $city = $row['city'];
             }
 
             print "
-            
+            <div class=container>
+            <div class='row'>
             <h3>Shipping Address</h3>
             <br>
             <p>$firstname $lastname,</p>
             <p>$address1,</p>
-            <p>$address2,</p>
             <p>$city,</p>
             <p>$state,</p>
             <p>$postcode</p>
+            </div>
+            </div>
             
             "
 ?>
-    <div class="checkoutContainer">
+    <div class="container">
+    <div class="row">
             <h3>Payment</h3>
             <div class="icon-container">
               <i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -110,14 +112,29 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
             </div>
             <form action="process_checkout.php" method="post">
             <label for="nameoncard">Name on Card</label>
+            <br>
             <input type="text" id="nameoncard" name="nameoncard" required>
-            <label for="cardno">Credit card number</label>
+            <br>
+            <br>
+            <label for="cardno">Card Number</label>
+            <br>
             <input type="text" id="cardno" name="cardno" required>
-            <label for="expirydate">Exp Month</label>
+            <br>
+            <br>
+            <label for="expirydate">Expiry Date</label>
+            <br>
             <input type="text" id="expirydate" name="expirydate" placeholder="MM/YY" required>
+            <br>
+            <br>
+            <label for="cvv">CVV/Security Code</label>
+            <br>
+            <input type="text" id="cvv" name="cvv" required>
+            <br>
             <br>
             <input type="submit" value="Place Order" class="btn">
             </form>
+    </div>
+    </div>
 
 
 <?php include "./footer.php"?>

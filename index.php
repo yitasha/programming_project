@@ -32,7 +32,7 @@ include "./navbar.php";
 <!-- Search bar -->
 <div class="headingContainer">
 	<h1>Rocket Market</h1>
-	<h5>buy, sell, and trade electronics<h5>
+	<h5>Matchmaking Buy and Sell Electronics<h5>
 </div>
 
 

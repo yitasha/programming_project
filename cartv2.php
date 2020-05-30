@@ -59,17 +59,20 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                                 </th>
                                 <td><h4>$ {$r['price']}</h4></td>
                                 <td><h4>$ {$r['price']}</h4></td>
-                                </tr>";
+                                </tr>
+                                
+                                ";
                         }
                     }
+                    
                 ?>
                 
             </tbody>
             </table>
+            <a href='checkout.php'><button class='btn btn-outline-secondary checkoutButton'>Proceed to Checkout</button></a>
     </div>
     </div>
 </div>
-<a href='checkout.php'><button class='btn btn-outline-secondary checkoutButton'>Proceed to Checkout</button></a>
 <?php include "./footer.php"?>
 </body>
 </html>
