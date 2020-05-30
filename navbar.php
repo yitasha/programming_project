@@ -62,7 +62,7 @@ print"
             <li><a href='#'><img src='imgs/favouriteRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>favourite</span></a></li>
           </div>
           <div class='sub-menu'>
-            <li><a href='cart.php'><img src='imgs/cartRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>cart</span></a></li>
+            <li><a href='cartv2.php'><img src='imgs/cartRed-256.png' style='width:20px;height:auto;'><span class='menu-title'>cart</span></a></li>
           </div>
         </ul>
    </div>
