@@ -14,5 +14,7 @@ while (list ($key, $val) = each ($_SESSION['compcart']))
 { 
     echo "$key -> $val <br>"; 
 }
+print("Session Total Variables \n");
+print_r($_SESSION);
 
 ?>

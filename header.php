@@ -17,4 +17,13 @@
 	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
 	<link rel='icon' href='imgs/logo.png'>
 	</head>";
+
+	#Start shopping cart session array if not created
+	if(!isset($_SESSION['compcart'])){
+		$_SESSION['compcart'] = array();
+	}
+	if(!isset($_SESSION['phonecart'])){
+		$_SESSION['phonecart'] = array();
+	}
+		
 ?>

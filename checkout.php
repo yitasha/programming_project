@@ -58,12 +58,48 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                                 </div>
                                 </th>
                                 <td><h4>$ {$r['price']}</h4></td>
-                                <td><h4>$ {$r['price']}</h4></td>
+                                <td><h4 style='display:inline'>$ </h4><h4 class='cost' style='display:inline'>{$r['price']}</h4></td>
                                 </tr>";
                         }
                     }
+                    foreach($_SESSION['phonecart'] as $item)
+                    {
+                        #Fetch phone table
+                        $statement = $db->prepare("SELECT * FROM phone WHERE phoneid = '$item'");
+                        $statement->execute();
+                        $statement->setFetchMode(PDO::FETCH_ASSOC);
+                        while ($r = $statement->fetch())
+                        {
+                            print "<tr>
+                                <th scope='row'>
+                                <img src='https://storage.googleapis.com/phoneimg/{$r['images']}' class='responsive' style='width:auto;max-height:70px; display:inline' alt='product pic'>
+                                <div>
+                                    <h3 style='display:inline'>{$r['phonename']}</h3>
+                                    <p>{$r['model']}, {$r['phonecond']}, {$r['brand']}</p>
+                                </div>
+                                </th>
+                                <td><h4>$ {$r['price']}</h4></td>
+                                <td><h4 style='display:inline'>$ </h4><h4 class='cost' style='display:inline'>{$r['price']}</h4></td>
+                                </tr>
+                                ";
+                        }
+                    }
                 ?>
-                
+                <tr>
+                    <th></th>
+                    <td></td>
+                    <td><h3>Total Cost: </h3><h4 class='totalcost' id='totalcost'></h4></td>
+                </tr>
+                <script>
+                // Loop through every cell with class .cost and add them up
+                $(document).ready(function(){
+                    var tot = 0;
+                    $('h4.cost').each(function(){
+                    tot += parseInt($(this).text());
+                    });
+                    $('h4.totalcost').html(tot);
+                });
+                </script>
             </tbody>
             </table>
     </div>

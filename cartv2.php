@@ -37,14 +37,40 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                     <th scope="col" width="60%">ITEM</th>
                     <th scope="col" width="20%">PRICE</th>
                     <th scope="col" width="20%">SUBTOTAL</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
+                    if(isset($_POST['compremove'])) #Remove from compcart
+                    {
+                        if(in_array($_POST['id'], $_SESSION['compcart'])){
+                            if(($key = array_search($_POST['id'], $_SESSION['compcart'])) !== false)
+                            {
+                                unset($_SESSION['compcart'][$key]);
+                            }
+                        }
+                        else{
+                            echo "<h4 style='color:red'>Error!</h4>";
+                        }
+                    }
+                    if(isset($_POST['phoneremove'])) #Remove from phonecart
+                    {
+                        if(in_array($_POST['id'], $_SESSION['phonecart'])){
+                            if(($key = array_search($_POST['id'], $_SESSION['phonecart'])) !== false)
+                            {
+                                unset($_SESSION['phonecart'][$key]);
+                            }
+                        }
+                        else{
+                            echo "<h4 style='color:red'>Error!</h4>";
+                        }
+                    }
+
                     foreach($_SESSION['compcart'] as $item)
                     {
                         #Fetch computer table
-                        $statement = $db->prepare("select * from computer where computerid = '$item'");
+                        $statement = $db->prepare("SELECT * FROM computer WHERE computerid = '$item'");
                         $statement->execute();
                         $statement->setFetchMode(PDO::FETCH_ASSOC);
                         while ($r = $statement->fetch())
@@ -59,8 +85,42 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                                 </th>
                                 <td><h4>$ {$r['price']}</h4></td>
                                 <td><h4>$ {$r['price']}</h4></td>
+                                <td>
+                                    <form method='POST'>
+                                        <input type='hidden' name='id' value='$item' />
+                                        <button type='submit' class='btn btn-danger' name='compremove' >Remove</button>
+                                    </form> 
+                                </td>
                                 </tr>
-                                
+                                ";
+                        }
+                    }
+
+                    foreach($_SESSION['phonecart'] as $item)
+                    {
+                        #Fetch phone table
+                        $statement = $db->prepare("SELECT * FROM phone WHERE phoneid = '$item'");
+                        $statement->execute();
+                        $statement->setFetchMode(PDO::FETCH_ASSOC);
+                        while ($r = $statement->fetch())
+                        {
+                            print "<tr>
+                                <th scope='row'>
+                                <img src='https://storage.googleapis.com/phoneimg/{$r['images']}' class='responsive' style='width:auto;max-height:70px; display:inline' alt='product pic'>
+                                <div>
+                                    <h3 style='display:inline'>{$r['phonename']}</h3>
+                                    <p>{$r['model']}, {$r['phonecond']}, {$r['brand']}</p>
+                                </div>
+                                </th>
+                                <td><h4>$ {$r['price']}</h4></td>
+                                <td><h4>$ {$r['price']}</h4></td>
+                                <td>
+                                    <form method='POST'>
+                                        <input type='hidden' name='id' value='$item' />
+                                        <button type='submit' class='btn btn-danger' name='phoneremove' >Remove</button>
+                                    </form> 
+                                </td>
+                                </tr>
                                 ";
                         }
                     }
@@ -69,7 +129,7 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
                 
             </tbody>
             </table>
-            <a href='checkout.php'><button class='btn btn-outline-secondary checkoutButton'>Proceed to Checkout</button></a>
+            <a href='checkout.php'><button class='btn btn-success'>Proceed to Checkout</button></a>
     </div>
     </div>
 </div>
