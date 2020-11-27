@@ -31,20 +31,29 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
     $imgname = $_FILES['image']['name']; //define name from img -> name
 	
     $location = $_FILES['image']['tmp_name']; //store in tmp location and move later
-    //Move uploaded image to google bucket: phone
-    move_uploaded_file($location, 'gs://phoneimg/'. $imgname); 
+
 
     $statement = $db->prepare("INSERT INTO phone (phoneid, images, phonename, phonecond, brand, model, phoneos, phonemem, phonestorage, phonecol, phonescreen, phonecam, description, price, user_userid)
     VALUES (null, '$imgname','$phonename','$phonecond','$brand', '$model','$phoneos','$phonemem', '$phonestorage', '$phonecol', '$phonescreen', '$phonecam', '$description', '$price','$user_userid')");
 
-    $statement->execute();
+    if($statement->execute())
+    {
+        //sleep(1); //Give it buffer 1 second
+        //Move uploaded image to google bucket: phone
+        move_uploaded_file($location, 'gs://phoneimg/'. $imgname); 
+    }
+    else
+    {
+        print "<script type='text/javascript'>
+		alert('Error, please check your internet connection.');
+		window.location.href = 'index.php';
+	    </script>";
+    }
     
     print "<script type='text/javascript'>
 		alert('You have added an new Phone');
 		window.location.href = 'index.php';
 	    </script>";
-  
-    
     //echo "$phonename, $name, $imgname, $phonecond, $brand, $model, $phoneos, $phonemem, $phonestorage
     //, $phonecol, $phonescreen, $phonecam, $description, $price, $user_userid ";
 ?>

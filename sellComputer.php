@@ -100,8 +100,6 @@ include "./navbar.php";
   <button  onclick="window.history.go(-1); return false;" class="btn btn-primary">Go Back</button>
   <button type="submit" class="btn btn-primary">Sell</button>
   </div>
-  
-
 </form>
 	<?php include "./footer.php"; ?>
 </body>

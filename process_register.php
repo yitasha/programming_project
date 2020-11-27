@@ -18,6 +18,7 @@
 		$address2 = $_POST['address2'];
 		$postcode = $_POST['postcode'];
 		$state = $_POST['state'];
+		$city = $_POST['city'];
 
 		
 		$check = $db->prepare("select * from user where username = '$username'");
@@ -32,8 +33,8 @@
 		else
 		{
 		//insertion
-		$statement = $db->prepare("INSERT INTO user (userid, firstname, lastname, phone, email, address1, address2, postcode, state, username, password)
-		VALUES (null,'$firstname','$lastname', '$phone','$email','$address1','$address2','$postcode','$state','$username','$password')");
+		$statement = $db->prepare("INSERT INTO user (userid, firstname, lastname, phone, email, address1, address2, postcode, state, username, password, profilepic, city)
+		VALUES (null,'$firstname','$lastname', '$phone','$email','$address1','$address2','$postcode','$state','$username','$password','profilePic.png','$city')");
 		
 		$statement->execute();
 			print "<script type='text/javascript'>

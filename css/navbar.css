@@ -93,6 +93,7 @@ a{
 }
 
 #loginContainer {
+    min-height: 500px;
     text-align: center;
     max-width: 650px;
     min-width: 250px;
@@ -115,20 +116,6 @@ a{
 }
 
 
-
-/* Removed because it will make screen into a small box
-body {
-    max-width: 650px;
-    min-width: 250px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    padding: 100px;
-
-}
-*/
-
 input[type=text] {
     background-color: #f6f6f6;
     border: none;
@@ -136,7 +123,7 @@ input[type=text] {
     padding: 10px 10px;
     text-decoration: none;
     font-size: 16px;
-    margin: 5px;
+    /* margin: 5px; */
     width: 95%;
     border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
@@ -258,6 +245,7 @@ input[type=submit]:hover {
 .formContent{
     margin-left: 20%;
     margin-right: 20%;
+    padding-bottom: 40px;
 }
 
 input[type=number] {
@@ -309,20 +297,24 @@ input[type=number] {
     background-color: white !important;
 }
 
-
-
-/*Footer Section*/
-
-footer{
-	margin-top: 30%;
-	border-top:1px solid #F74A4A;
-    padding-top:20px;
-    text-align: center;
+.card:hover{
+    cursor: pointer;
+}
+  
+.card-img-top{
+    object-fit: contain !important;
+    width: 18rem !important;
+    height: 200px !important;
 }
 
-footer p{
-    color:black;
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none !important;
+    color: black !important;
 }
+
 
 /*Ask form*/
 .ask_form{
@@ -359,4 +351,131 @@ footer p{
     border: solid !important;
     color: #F74A4A;
     border-width: 1px !important;
+}
+
+/*Product Page*/
+.sellerProfile{
+    margin-top:6%;
+    text-align: center !important;
+}
+
+.productPageButton{
+    border:1px solid !important;
+    border-radius: 10px !important;
+    color: #F74A4A;
+}
+.productPageButtonSell{
+    border-radius: 10px !important;
+    color: white !important;
+    background-color: #F74A4A !important;
+    border-color: #F74A4A !important;
+}
+
+
+/*Email Form*/
+.emailForm{
+    width:70% !important;
+    margin: 0 auto;
+}
+
+.emailForm input[type=submit] {
+    background-color: #5cdb95;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30%;
+}
+
+.emailForm input[type=submit]:hover {
+    background-color: #2fb96d;
+}
+
+.emailForm input[type=text] {
+    background-color: white;
+    border: 1px solid;
+    color: #0d0d0d;
+    font-size: 16px;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #d6d6d6;
+    margin-left:0px;
+}
+
+.email_form_row{
+    margin:0 !important;
+}
+
+.emailColumn{
+    padding:0px !important;
+}
+
+.emailColumnTwo{
+    padding:0px !important;
+    width:47% !important;
+}
+
+.commentTextBox{
+    height:100px;
+}
+
+.subject{
+    width:100%;
+}
+
+
+/*Footer Section*/
+
+footer{
+    border-top: 1px solid #F74A4A;
+    padding-top: 20px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    text-align: center;
+}
+
+footer p{
+    color:black;
+}
+
+/* search bar css */
+.container{
+    margin-top:5%;
+  }
+  /* Style to create scroll bar in dropdown */ 
+.scrollable-dropdown{
+    height: auto;
+    max-height:320px;  /* Increase / Decrease value as per your need */
+    overflow-x: hidden;
+}
+
+/* search bar for buy page */
+.input-group-addon {
+    padding: 0!important;  
+}
+
+select {
+    background: transparent;
+    border: none;
+    padding: 6px 12px;
+    color:black !important;
+}
+
+#buy_button {
+    padding: 6px 12px !important;
+    background: transparent !important;
+    border: none !important;
+    color:black;
+  }
+
+#search{
+    padding: 6px 12px !important;
+    height:50px;
+    border-radius: 0px 0px 0px 0px !important;
+    border-top-color:grey !important;
+    border-bottom-color:grey !important;
 }

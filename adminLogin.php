@@ -1,5 +1,24 @@
 <?php 
 session_start();
+	#If public username is detected, do not show Admin login panel
+	$username = $_SESSION['username'];
+	if(isset($username))
+	{
+		print "<script type='text/javascript'>
+		alert('Logout normal user first!');
+		window.location.href = 'index.php';
+	    </script>";
+	}
+	#If Admin username is already detected, do not show Admin login panel
+	$admin = $_SESSION['adminName'];
+	if(isset($admin))
+	{
+		print "<script type='text/javascript'>
+		alert('Admin you have already logged in!');
+		window.location.href = 'adminIndex.php';
+	    </script>";
+    }
+
 $page_title= "Admin Login";
 
 include "./header.php"; 

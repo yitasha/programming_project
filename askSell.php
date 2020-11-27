@@ -55,18 +55,7 @@ $page_title= "Sell";
         <img src="imgs/computerBlack-512.png" style='width:150px;height:auto;'>
         <h5><span class="askProductFont">Computer</span></h5>
       </label>
-
-      <label>
-        <input type="radio" name="product" value="laptop">
-        <img src="imgs/laptopBlack-512.png" style='width:150px;height:auto;'>
-        <h5><span class="askProductFont">Laptop</span></h5>
-      </label>
-
-      <label>
-        <input type="radio" name="product" value="accessories">
-        <img src="imgs/keyboardBlack-512.png" style='width:150px;height:auto;'>
-        <h5><span class="askProductFont">Accessories</span></h5>
-      </label>
+      
   </div>
   <div class="row">
     <button type="submit" class="btn btn-outline-primary btn-lg " name="nextSell">Next</button>

@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-		//This is for MYSQLI connection, might need for later use. 
+		//This is for MYSQLI connection, might need for later use. DO NOT DELETE
 		//Currently using PDO connection and methods.
 		// Instantiate your DB using the database host, port, name, username, and password
 		$dbSocket = '/cloudsql/rocket-matchmaking:australia-southeast1:rocketmarket'
